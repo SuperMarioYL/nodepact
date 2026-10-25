@@ -16,6 +16,9 @@
     "# click the submit button, annotate it in Chinese, accept the drafted assertion",
     "nodepact check --json",
     "# edit examples/demo-app/index.html: #email { margin-bottom: 4px } -> 14px",
+    "nodepact check --json",
+    "# still NOT_DONE: check reads the page open in Chrome, and python3 -m http.server has no HMR",
+    "# reload the page in Chrome (Cmd-R / F5), or use a dev server with HMR",
     "nodepact check --json"
   ],
   "observed": {
@@ -45,6 +48,7 @@
   "limitations": [
     "Chromium only: Nodepact talks CDP to a browser the developer already started; it never launches one.",
     "It judges, it does not fix: no DOM or source edits, no auto-repair.",
+    "check reads the page as it is now and never reloads it: with a plain static server (python3 -m http.server, no HMR) a source edit stays invisible until the page is reloaded by hand, so the second check is still NOT_DONE. A dev server with HMR reloads for you.",
     "Three assertion kinds only (gap, style, changed); no layout-tree reasoning.",
     "No CI mode and no headless run: the baseline is a crop of one developer's own window, so it is not committed to the repository.",
     "The baseline crop is machine specific: .nodepact/ is git-ignored and re-created by `nodepact annotate`.",

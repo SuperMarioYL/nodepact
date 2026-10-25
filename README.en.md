@@ -122,11 +122,15 @@ An overlay appears in the bottom-right of the page: click the node, write what i
 fine), press Enter. If you configured a model endpoint, `annotate` drafts the assertion from that
 sentence for you to confirm; without one, you type the assertion by hand.
 
-### 5. Change one line of CSS and watch it flip
+### 5. Change one line of CSS, reload the page, watch it flip
 
 ```bash
 # examples/demo-app/index.html
 #   #email { margin-bottom: 4px; }  ->  #email { margin-bottom: 14px; }
+
+# Then reload the page. `check` reads the page currently open in your Chrome:
+# python3 -m http.server has no HMR, so the file edit alone leaves the old page in place —
+# press Cmd-R (F5) in Chrome to reload it. A dev server with HMR (Vite, Next, ...) does this for you.
 ```
 
 ```console
@@ -137,7 +141,8 @@ $ nodepact check
   artifact .nodepact/diffs/submit.after.png
   verdict NOT_DONE  assertion does not hold: gap 4px >= 12px -> fail
 
-# ...after the CSS fix...
+# ...after the CSS fix, and after reloading the page in Chrome (Cmd-R / F5).
+# Without the reload the second check is still NOT_DONE...
 
 $ nodepact check
 #submit  gap(#email, #submit) >= 12px
@@ -176,7 +181,8 @@ saved to .nodepact/steer.yaml   (node fp 99ceb4, baseline 68x46)
 $ nodepact check --json
 { "verdict": "NOT_DONE", "before": 4, "after": 4,
   "render_diff": { "changed_px": 0, "total_px": 7900, "ratio": 0 } }
-# the agent edits that one CSS line, then calls check again:
+# the agent edits that one CSS line and reloads the page (no HMR on a static server: refresh;
+# an HMR dev server does it itself), then calls check again:
 $ nodepact check --json
 { "verdict": "DONE", "before": 4, "after": 14,
   "render_diff": { "changed_px": 165, "total_px": 7900, "ratio": 0.0209 } }
@@ -348,9 +354,10 @@ Two tools:
   baseline path).
 
 A typical agent loop: call `nodepact.check` -> get `NOT_DONE` and the measured value (`after: 4`,
-against a required `>= 12px`) -> edit the CSS -> call it again -> get `DONE` and the diff image. No
-human in between. Because the verdict is deterministic, calling it twice on unchanged code returns the
-same answer.
+against a required `>= 12px`) -> edit the CSS -> reload the page (automatic on an HMR dev server,
+a manual refresh on a static one) -> call it again -> get `DONE` and the diff image. No human in
+between. Because the verdict is deterministic, calling it twice on unchanged code returns the same
+answer.
 
 MCP is only the last mile: the whole thing runs from the CLI, with no agent at all.
 

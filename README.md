@@ -113,11 +113,15 @@ next: nodepact check
 浮层出现在页面右下角：点节点，写下你的意见（中文就行），回车提交。如果你配了模型端点，
 `annotate` 会把这句话起草成一条断言给你确认；没配也能用，直接手写断言。
 
-### 5. 改一行 CSS，看它翻成 DONE
+### 5. 改一行 CSS，刷新页面，看它翻成 DONE
 
 ```bash
 # examples/demo-app/index.html
 #   #email { margin-bottom: 4px; }  ->  #email { margin-bottom: 14px; }
+
+# 然后让页面重新加载。check 读的是你 Chrome 里当前这个页面：
+# python3 -m http.server 没有热更新，改完文件页面还是旧的，要在 Chrome 里按 Cmd-R（F5）刷新一次。
+# 用带 HMR 的 dev server（Vite、Next 等）时这一步是自动的。
 ```
 
 ```console
@@ -128,7 +132,7 @@ $ nodepact check
   artifact .nodepact/diffs/submit.after.png
   verdict NOT_DONE  assertion does not hold: gap 4px >= 12px -> fail
 
-# ...改完 CSS...
+# ...改完 CSS，并在 Chrome 里刷新页面（Cmd-R / F5）。不刷新的话第二次 check 仍是 NOT_DONE...
 
 $ nodepact check
 #submit  gap(#email, #submit) >= 12px
@@ -165,7 +169,7 @@ saved to .nodepact/steer.yaml   (node fp 99ceb4, baseline 68x46)
 $ nodepact check --json
 { "verdict": "NOT_DONE", "before": 4, "after": 4,
   "render_diff": { "changed_px": 0, "total_px": 7900, "ratio": 0 } }
-# agent 改掉那一行 CSS，再调一次：
+# agent 改掉那一行 CSS 并让页面重新加载（静态服务器没有 HMR，刷新一下；HMR 的 dev server 自动），再调一次：
 $ nodepact check --json
 { "verdict": "DONE", "before": 4, "after": 14,
   "render_diff": { "changed_px": 165, "total_px": 7900, "ratio": 0.0209 } }
@@ -322,7 +326,8 @@ nodepact mcp --install
 - `nodepact.list`——列出本项目里存的纠偏对（选择器、你的批注、断言、基线路径）。
 
 一个典型的 agent 循环：调 `nodepact.check` → 拿到 `NOT_DONE` 和实测值（`after: 4`，要求 `>= 12px`）→
-改 CSS → 再调一次 → 拿到 `DONE` 和差异图。中间不需要人。因为判定是确定性的，重复调用同一份代码得到同一个答案。
+改 CSS → 让页面重新加载（HMR 的 dev server 自动，静态服务器要刷新）→ 再调一次 → 拿到 `DONE` 和差异图。
+中间不需要人。因为判定是确定性的，重复调用同一份代码得到同一个答案。
 
 MCP 只是最后一公里：整套东西从 CLI 就能跑，不需要任何 agent。
 

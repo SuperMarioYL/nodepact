@@ -4,7 +4,7 @@
 # This is the record of a real run against examples/demo-app: #submit sat 4px under the email
 # input, the annotation said so in Chinese, and the assertion was written by hand as
 # `gap(#email, #submit) >= 12px`. `nodepact check` returned NOT_DONE at 4px and DONE at 14px
-# after the one-line CSS fix.
+# after the one-line CSS fix and a page reload (the static demo server has no HMR).
 #
 # To use it: run `nodepact annotate` once (it writes this file and captures the baseline crop),
 # then copy the `assertion:` block below into your own .nodepact/steer.yaml. The baseline crop is

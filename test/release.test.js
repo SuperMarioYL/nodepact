@@ -145,6 +145,35 @@ test("docs/demo.cast is a real asciinema v2 recording of the documented run", ()
   }
 });
 
+test("the quickstart documents the page reload the static demo server needs", () => {
+  // `check` reads the page open in Chrome and python3 -m http.server has no HMR, so the one-line
+  // CSS edit stays invisible until the page is reloaded. Without that step the demo does not
+  // reproduce as written (the second check is still NOT_DONE), so the docs must carry it.
+  const zh = read("README.md");
+  const en = read("README.en.md");
+  for (const [file, content] of [["README.md", zh], ["README.en.md", en]]) {
+    assert.ok(content.includes("Cmd-R"), `${file} must name the reload keystroke`);
+    assert.ok(content.includes("HMR"), `${file} must explain the HMR case`);
+  }
+  assert.ok(zh.includes("刷新"), "README.md must state the page reload in Chinese");
+
+  const lines = read("docs/demo.cast").split("\n").filter((line) => line.trim() !== "");
+  const transcript = lines
+    .slice(1)
+    .map((line) => JSON.parse(line))
+    .filter((event) => event[1] === "o")
+    .map((event) => event[2])
+    .join("");
+  assert.match(transcript, /reload the page in Chrome/, "the cast must show the reload");
+  assert.match(transcript, /no HMR/, "the cast must say why the reload is needed");
+
+  const results = JSON.parse(read("docs/demo-results.json"));
+  assert.ok(
+    results.commands.some((command) => /reload/i.test(command)),
+    "demo-results.json must record the reload step",
+  );
+});
+
 test("docs/demo-results.json records the reproducible run", () => {
   const results = JSON.parse(read("docs/demo-results.json"));
   assert.equal(results.version, read("VERSION").trim());

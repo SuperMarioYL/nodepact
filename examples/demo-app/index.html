@@ -14,13 +14,16 @@
         nodepact init --url http://localhost:5173
         nodepact annotate                    # click 提交, annotate 「提交按钮和上面的邮箱输入框太近了」
         nodepact check                       # NOT_DONE: gap(#email, #submit) is 4px, not >= 12px
-        nodepact check                       # after the one-line fix below -> DONE
+        nodepact check                       # still NOT_DONE: the fix below is not on the page yet
 
       THE FIX (the whole point of the demo): in the <style> block, change
           #email { margin-bottom: 4px; }
       to
           #email { margin-bottom: 14px; }
-      That is the only edit needed for `check` to flip NOT_DONE -> DONE.
+      That is the only edit needed. `check` reads the page currently open in Chrome, and
+      python3 -m http.server has no HMR, so reload the page (Cmd-R / F5) after the edit; a dev
+      server with HMR reloads on its own. Then:
+        nodepact check                       # DONE
     -->
     <style>
       :root {
