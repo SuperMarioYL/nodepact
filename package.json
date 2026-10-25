@@ -38,7 +38,8 @@
     "build": "tsc -p tsconfig.json && node --eval \"require('node:fs').cpSync('src/annotate/overlay.js','dist/annotate/overlay.js')\"",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "dev": "tsx src/cli/index.ts",
-    "test": "node --test",
+    "pretest": "npm run build",
+    "test": "node --test \"test/**/*.test.js\"",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
