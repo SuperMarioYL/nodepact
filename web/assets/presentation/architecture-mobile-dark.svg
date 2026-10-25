@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1120" viewBox="0 0 720 1120" role="img" aria-label="Nodepact architecture" data-palette="5656e6-ac6ae7-acc7f6-8d5838409548">
+  <style>
+    text { font-family: -apple-system,'Segoe UI','PingFang SC','Noto Sans SC','Microsoft YaHei',sans-serif; }
+    .mono { font-family: 'SF Mono','JetBrains Mono','Cascadia Code',ui-monospace,Menlo,Consolas,monospace; }
+    .zh { font-family: -apple-system,'Segoe UI','PingFang SC','Noto Sans SC','Microsoft YaHei',sans-serif; }
+    .drift1 { animation: drift1 7s ease-in-out infinite alternate; }
+    .drift2 { animation: drift2 9s ease-in-out infinite alternate; }
+    .pulse  { animation: pulse 2.6s ease-in-out infinite; }
+    .pulse2 { animation: pulse2 3.4s ease-in-out infinite; }
+    .flow   { stroke-dasharray: 6 8; animation: march 1.6s linear infinite; }
+    .flow-slow { stroke-dasharray: 5 9; animation: march 3.2s linear infinite; }
+    .blink  { animation: blink 2.4s steps(2, jump-none) infinite; }
+    @keyframes drift1 { from { transform: translate(0,0); } to { transform: translate(14px,-18px); } }
+    @keyframes drift2 { from { transform: translate(0,0); } to { transform: translate(-12px,16px); } }
+    @keyframes pulse  { 0%,100% { opacity: .25; } 50% { opacity: 1; } }
+    @keyframes pulse2 { 0%,100% { opacity: .9; } 45% { opacity: .25; } }
+    @keyframes march  { to { stroke-dashoffset: -28; } }
+    @keyframes blink  { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+    @media (prefers-reduced-motion: reduce) {
+      .drift1,.drift2,.pulse,.pulse2,.flow,.flow-slow,.blink { animation: none; }
+    }</style>
+  <rect width="720" height="1120" fill="#050712"/>
+  <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <radialGradient id="halo" cx="50%" cy="42%" r="55%">
+    <stop offset="0%" stop-color="#6d6de9" stop-opacity="0.18"/>
+    <stop offset="60%" stop-color="#ac6ae7" stop-opacity="0.06"/>
+    <stop offset="100%" stop-color="#050712" stop-opacity="0"/>
+  </radialGradient>
+  <g><line x1="60" y1="0" x2="60" y2="1120" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="180" y1="0" x2="180" y2="1120" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="300" y1="0" x2="300" y2="1120" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="420" y1="0" x2="420" y2="1120" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="540" y1="0" x2="540" y2="1120" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="660" y1="0" x2="660" y2="1120" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="60" x2="720" y2="60" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="180" x2="720" y2="180" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="300" x2="720" y2="300" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="420" x2="720" y2="420" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="540" x2="720" y2="540" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="660" x2="720" y2="660" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="780" x2="720" y2="780" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="900" x2="720" y2="900" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="1020" x2="720" y2="1020" stroke="#171841" stroke-width="0.5" opacity="0.5"/><g class="drift1"><circle cx="171.0" cy="330.0" r="1" fill="#acc7f6" opacity="0.10"/><circle cx="634.0" cy="369.0" r="1.7" fill="#6d6de9" opacity="0.15"/><circle cx="133.0" cy="1078.0" r="2.4" fill="#acc7f6" opacity="0.20"/><circle cx="660.0" cy="457.0" r="1" fill="#6d6de9" opacity="0.25"/><circle cx="631.0" cy="506.0" r="1.7" fill="#acc7f6" opacity="0.10"/><circle cx="614.0" cy="325.0" r="2.4" fill="#6d6de9" opacity="0.15"/><circle cx="73.0" cy="814.0" r="1" fill="#acc7f6" opacity="0.20"/><circle cx="480.0" cy="1073.0" r="1.7" fill="#6d6de9" opacity="0.25"/><circle cx="91.0" cy="902.0" r="2.4" fill="#acc7f6" opacity="0.10"/><circle cx="394.0" cy="501.0" r="1" fill="#6d6de9" opacity="0.15"/><circle cx="113.0" cy="770.0" r="1.7" fill="#acc7f6" opacity="0.20"/><circle cx="600.0" cy="809.0" r="2.4" fill="#6d6de9" opacity="0.25"/><circle cx="451.0" cy="418.0" r="1" fill="#acc7f6" opacity="0.10"/><circle cx="74.0" cy="897.0" r="1.7" fill="#6d6de9" opacity="0.15"/><circle cx="553.0" cy="946.0" r="2.4" fill="#acc7f6" opacity="0.20"/></g><g class="drift2"><circle cx="520.0" cy="765.0" r="1" fill="#6d6de9" opacity="0.25"/><circle cx="211.0" cy="154.0" r="1.7" fill="#acc7f6" opacity="0.10"/><circle cx="54.0" cy="413.0" r="2.4" fill="#6d6de9" opacity="0.15"/><circle cx="493.0" cy="242.0" r="1" fill="#acc7f6" opacity="0.20"/><circle cx="340.0" cy="941.0" r="1.7" fill="#6d6de9" opacity="0.25"/><circle cx="371.0" cy="110.0" r="2.4" fill="#acc7f6" opacity="0.10"/><circle cx="534.0" cy="149.0" r="1" fill="#6d6de9" opacity="0.15"/><circle cx="533.0" cy="858.0" r="1.7" fill="#acc7f6" opacity="0.20"/><circle cx="460.0" cy="237.0" r="2.4" fill="#6d6de9" opacity="0.25"/><circle cx="31.0" cy="286.0" r="1" fill="#acc7f6" opacity="0.10"/><circle cx="214.0" cy="105.0" r="1.7" fill="#6d6de9" opacity="0.15"/><circle cx="273.0" cy="594.0" r="2.4" fill="#acc7f6" opacity="0.20"/><circle cx="380.0" cy="853.0" r="1" fill="#6d6de9" opacity="0.25"/><circle cx="491.0" cy="682.0" r="1.7" fill="#acc7f6" opacity="0.10"/><circle cx="194.0" cy="281.0" r="2.4" fill="#6d6de9" opacity="0.15"/></g></g>
+  <text x="40" y="58" font-size="27" font-weight="600" fill="#eef4fd">两个进程 <tspan fill="#959cc4" font-size="17">· 扁平文件</tspan></text>
+
+  <rect x="40" y="96" width="640" height="168" rx="12" fill="#0c101f" stroke="#6d6de9" stroke-width="1.8"/>
+  <text x="64" y="130" font-size="15" fill="#959cc4">开发者已开的 Chrome</text>
+  <text x="64" y="160" font-size="19" class="mono" fill="#eef4fd">dev server 页面</text>
+  <text x="64" y="196" font-size="14" fill="#959cc4">overlay.js 注入浮层，只负责点选</text>
+  <text x="64" y="224" font-size="14" class="mono" fill="#959cc4">getBoundingClientRect · getComputedStyle</text>
+
+  <path d="M 360 264 L 360 328" stroke="#6d6de9" stroke-width="2" class="flow" fill="none"/>
+  <text x="380" y="302" font-size="14" class="mono" fill="#6d6de9">CDP · 127.0.0.1:9222</text>
+
+  <rect x="40" y="328" width="640" height="470" rx="12" fill="#0c101f" stroke="#6d6de9" stroke-width="1.8"/>
+  <text x="64" y="362" font-size="15" fill="#959cc4">nodepact CLI · 单进程（node）</text>
+  <g>
+      <rect x="64" y="388" width="592" height="82" rx="12" fill="#0c101f" stroke="#171841" stroke-width="1.4"/>
+      <text x="84" y="422" font-size="17" class="mono" fill="#6d6de9">anchor/</text>
+      <text x="84" y="450" font-size="13.5" fill="#959cc4">指纹 + 存储 → steer.yaml + baseline/*.png</text>
+    </g>
+<g>
+      <rect x="64" y="488" width="592" height="82" rx="12" fill="#0c101f" stroke="#171841" stroke-width="1.4"/>
+      <text x="84" y="522" font-size="17" class="mono" fill="#6d6de9">oracle/</text>
+      <text x="84" y="550" font-size="13.5" fill="#959cc4">assert.eval + pixelmatch diff + verdict</text>
+    </g>
+<g>
+      <rect x="64" y="588" width="592" height="82" rx="12" fill="#0c101f" stroke="#171841" stroke-width="1.4" stroke-dasharray="5 5"/>
+      <text x="84" y="622" font-size="17" class="mono" fill="#6d6de9">annotate/</text>
+      <text x="84" y="650" font-size="13.5" fill="#959cc4">中文批注 → 断言草稿（可选模型）</text>
+    </g>
+<g>
+      <rect x="64" y="688" width="592" height="82" rx="12" fill="#0c101f" stroke="#171841" stroke-width="1.4"/>
+      <text x="84" y="722" font-size="17" class="mono" fill="#6d6de9">mcp/</text>
+      <text x="84" y="750" font-size="13.5" fill="#959cc4">nodepact.check / nodepact.list → agent</text>
+    </g>
+
+  <path d="M 360 798 L 360 856" stroke="#6d6de9" stroke-width="2" class="flow" fill="none"/>
+  <text x="380" y="834" font-size="14" class="mono" fill="#959cc4">全部状态落在本地</text>
+  <rect x="40" y="856" width="640" height="200" rx="12" fill="#0c101f" stroke="#171841" stroke-width="1.4"/>
+  <text x="64" y="890" font-size="15" fill="#959cc4">.nodepact/ · 扁平文件，可私有化</text>
+  <text x="84" y="928" font-size="15" class="mono" fill="#eef4fd">steer.yaml — 锚点 + 批注 + 断言</text>
+<text x="84" y="968" font-size="15" class="mono" fill="#eef4fd">baseline/submit.png — 修复前裁剪</text>
+<text x="84" y="1008" font-size="15" class="mono" fill="#eef4fd">diffs/submit.after.png · submit.diff.png</text>
+  <text x="40" y="1098" font-size="13.5" fill="#959cc4">没有守护进程、没有数据库、没有云端。</text>
+
+</svg>

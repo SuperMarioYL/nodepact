@@ -1,0 +1,378 @@
+{
+  "schema": 3,
+  "name": "Nodepact",
+  "github": "https://github.com/SuperMarioYL/nodepact",
+  "host": "nodepact.lei6393.com",
+  "palette": "auto",
+  "lang": {
+    "primary": "zh",
+    "toggle": true
+  },
+  "meta": {
+    "visual_profile": "neon-particle",
+    "demo_source": "docs/demo-results.json",
+    "implementation_version": "0.1.0"
+  },
+  "hero": {
+    "eyebrow": {
+      "zh": "元素锚定纠偏对 · 只连你已开的 Chrome",
+      "en": "Element-anchored steering pair · your own open Chrome"
+    },
+    "headline": {
+      "zh": "让节点的渲染差异\n成为 agent 的验收结论",
+      "en": "Let a node's render diff\nbe the agent's verdict"
+    },
+    "sub": {
+      "zh": "Nodepact 经 CDP 挂上你已经打开的那个 Chrome。你在页面上点一个节点、写一句中文批注，它把这句话落成一条可判定的断言；之后每次 check 返回的是这个节点前后渲染的差异加 PASS / FAIL。判定路径上没有模型，所以同一个问题问两次，答案一定一样。",
+      "en": "Nodepact attaches over CDP to the Chrome you already have open. You point at a node and leave one line of annotation; it turns that line into a decidable assertion. From then on every check returns that node's before/after render diff plus PASS / FAIL. There is no model on the verdict path, so the same question twice gives the same answer."
+    },
+    "href": "https://github.com/SuperMarioYL/nodepact",
+    "cta": {
+      "zh": "在 GitHub 开始",
+      "en": "Start on GitHub"
+    },
+    "ctaGithub": {
+      "zh": "在 GitHub 查看",
+      "en": "View on GitHub"
+    }
+  },
+  "scene": {
+    "kind": "neon-graph",
+    "fallback": "/assets/presentation/hero-static-dark.svg",
+    "fallbackLight": "/assets/presentation/hero-static-light.svg",
+    "caption": {
+      "zh": "示意场景：节点收敛成一条可判定的信号",
+      "en": "Illustrative: nodes converge into one decidable signal"
+    }
+  },
+  "advantages": [
+    {
+      "title": {
+        "zh": "判定是纯函数，路径上没有模型",
+        "en": "The verdict is a pure function, with no model in the path"
+      },
+      "body": {
+        "zh": "DONE ⟺ 断言成立 ∧ 该节点前后渲染差异占比 ≥ ε；不满足就是 NOT_DONE，两次背靠背截图自身抖动超过 stability_floor 就报 UNSTABLE，不假装 DONE。同一份代码跑两次结论一定一样，这正是它能进脚本的前提。",
+        "en": "DONE holds exactly when the assertion passes and the node's own render diff is at least epsilon; otherwise NOT_DONE, and when two back-to-back captures of the node differ by more than the stability floor it reports UNSTABLE rather than pretending DONE. Run the same code twice and the verdict is identical, which is what lets it sit inside a script."
+      }
+    },
+    {
+      "title": {
+        "zh": "锚点是结构指纹加基线裁剪，不是一条选择器",
+        "en": "The anchor is a structural fingerprint plus a baseline crop, not a selector"
+      },
+      "body": {
+        "zh": "除了 CSS 选择器，锚点还带一份结构指纹（标签 + 稳定属性 + 最近三层祖先链 + 文本哈希）和修复前该节点的裁剪截图。DOM 漂移之后选择器可能失效，指纹还能把节点找回来；两个候选打平时 check 直接报 anchor_not_found，绝不猜。",
+        "en": "Beyond the CSS selector, an anchor carries a structural fingerprint (tag, stable attributes, the nearest three ancestors, a text hash) and a crop of the node taken before the fix. When the DOM drifts the selector can break and the fingerprint still finds the node; when two candidates tie, check reports anchor_not_found rather than guessing."
+      }
+    },
+    {
+      "title": {
+        "zh": "中文批注直接落成可判定断言",
+        "en": "One Chinese line becomes a decidable assertion"
+      },
+      "body": {
+        "zh": "annotate 把「提交按钮和邮箱输入框太近了」起草成 gap(#email, #submit) >= 12px 交给你确认。这一步可以走国产模型（DeepSeek / Qwen / GLM / Kimi 的 OpenAI 兼容端点），也可以完全离线手写。断言库、基线截图与差异图都落在本地 .nodepact/，不出境，可私有化。",
+        "en": "annotate drafts \"the submit button sits too close to the email field\" into gap(#email, #submit) >= 12px and hands it to you to confirm. That draft step can call a domestic OpenAI-compatible endpoint (DeepSeek, Qwen, GLM, Kimi) or be skipped entirely and written by hand. The assertion store, baseline crops and diff images stay local under .nodepact/."
+      }
+    }
+  ],
+  "story": {
+    "intro": {
+      "title": {
+        "zh": "agent 说改好了，只有你能看见它到底改对没有",
+        "en": "The agent says it is fixed; only you can see whether it is"
+      },
+      "body": {
+        "zh": "你让 coding agent 改一处界面：按钮贴着输入框、间距不对、颜色偏了。你只有一种表达方式——在聊天里用文字描述它，然后自己再看一遍页面，判断 agent 到底改对没有。这条回路有两个洞：批注没有绑在它说的那个元素上，agent 只能重新猜你指哪个节点；也没有一个机器能读的验收信号，agent 说「我已经修好了」这句话本身就是「完成」的唯一证据。于是人既是描述者又是复核者，回路永远合不上。Nodepact 把这两件事合成一个原语：元素锚定纠偏对。锚点是那个节点的稳定定位加修复前的渲染基线，断言是一条可判定的谓词，判定是「断言成立，且这个节点相对基线确实变了」。check 给你的不是措辞，是一组可以复核的数：实测值、像素差异、差异图和结论。",
+        "en": "You ask a coding agent to fix a rendered defect: a button hugging an input, wrong spacing, an off color. Your only way to say it is text in a chat, and then you look at the page again yourself to decide whether the agent got it right. That loop has two holes. The annotation is not bound to the element it describes, so the agent guesses again which node you meant; and there is no machine-readable acceptance signal, so \"I fixed it\" is the only evidence that it is done. You end up both describing and reviewing, and the loop never closes. Nodepact merges both into one primitive: the element-anchored steering pair. The anchor is the node's stable identity plus a render baseline taken before the fix; the assertion is a decidable predicate; the verdict is that the assertion holds and the node really changed from that baseline. What check returns is not prose but a set of numbers you can re-derive: the measured value, the pixel diff, the diff image and the conclusion."
+      }
+    },
+    "sections": [
+      {
+        "title": {
+          "zh": "一次 check 走的路",
+          "en": "The path one check takes"
+        },
+        "body": {
+          "zh": "五条命令一条闭环：init 经 CDP 挂上你已开的 Chrome 并写本地 store；annotate 注入浮层点选节点、写下批注、确认断言并抓下基线；check 重新截图并给出判定；label 复查或改写某个锚点上的批注；mcp 把 nodepact.check / nodepact.list 暴露给 agent。最多两个进程——你自己开的 Chrome，和 nodepact 的 CLI / MCP 进程。没有守护进程、没有数据库、没有云端，全部状态是 .nodepact/ 下的扁平文件。",
+          "en": "Five commands, one closed loop: init attaches over CDP to the Chrome you already have open and writes a local store; annotate injects the overlay, you pick a node, write the annotation, confirm the assertion and it captures the baseline; check re-captures and returns the verdict; label lists stored anchors or replaces the annotation on one; mcp exposes nodepact.check / nodepact.list to an agent. At most two processes exist - the Chrome you started and the nodepact CLI / MCP process. No daemon, no database, no cloud: every piece of state is a flat file under .nodepact/."
+        },
+        "image": {
+          "light": "/assets/presentation/process-light.svg",
+          "dark": "/assets/presentation/process-dark.svg",
+          "alt": {
+            "zh": "init、annotate、check、label、mcp 五步闭环，以及 NOT_DONE / DONE / UNSTABLE 三态判定",
+            "en": "The five-step init, annotate, check, label, mcp loop and the NOT_DONE / DONE / UNSTABLE verdict"
+          },
+          "mobile": {
+            "light": "/assets/presentation/process-mobile-light.svg",
+            "dark": "/assets/presentation/process-mobile-dark.svg"
+          }
+        }
+      },
+      {
+        "title": {
+          "zh": "两个进程与扁平文件",
+          "en": "Two processes and flat files"
+        },
+        "body": {
+          "zh": "overlay.js 跑在你 Chrome 的页面里，只负责点选。CLI 单进程里，anchor/ 做指纹与存储，oracle/ 做断言求值、pixelmatch 差异与三态判定，annotate/ 只在起草那一步碰模型，mcp/ 是最后一公里。判定读的是节点框内像素占比，且 includeAA: false；截图会在节点四周多裁 capture_margin（默认 16px）——裁得太紧的截图会跟着节点一起移动，一个只把节点挪开的修复就会看不见差异，而那正是 gap 断言要求的那种修复。",
+          "en": "overlay.js runs inside the page in your Chrome and only owns the picking. In the single CLI process, anchor/ does fingerprinting and storage, oracle/ evaluates the assertion, runs the pixelmatch diff and decides the three-state verdict, annotate/ touches a model only in the draft step, and mcp/ is the last mile. The diff is a fraction of the node's own crop with includeAA: false, and the crop is widened by capture_margin (16px by default): a crop that is too tight moves with the node, so a fix that only relocates it would show nothing - exactly the fix a gap assertion asks for."
+        },
+        "image": {
+          "light": "/assets/presentation/architecture-light.svg",
+          "dark": "/assets/presentation/architecture-dark.svg",
+          "alt": {
+            "zh": "开发者 Chrome 经 CDP 连到 nodepact CLI，CLI 内 anchor、oracle、annotate、mcp 四个模块与 .nodepact/ 扁平文件",
+            "en": "The developer's Chrome over CDP into the nodepact CLI, with the anchor, oracle, annotate and mcp modules and the flat .nodepact/ files"
+          },
+          "mobile": {
+            "light": "/assets/presentation/architecture-mobile-light.svg",
+            "dark": "/assets/presentation/architecture-mobile-dark.svg"
+          }
+        }
+      },
+      {
+        "title": {
+          "zh": "它站在哪一层",
+          "en": "Where it sits"
+        },
+        "body": {
+          "zh": "把批注投递给 agent 的那一半已经很拥挤：spotnote 这类工具负责投递，reticle 一类方案让 agent 自证，整页视觉回归（Playwright / Percy）在 CI 里比整页基线快照，chrome-devtools-mcp 给 agent 读 DOM、截图的能力。Nodepact 不重复这些，它让「你指的那个节点自己的渲染差异」成为验收信号；检查面走同一条 CDP 通路，直接用 chrome-remote-interface 连上去，不经过中间层。",
+          "en": "Delivering the annotation to the agent is already crowded: tools like spotnote deliver it, reticle-style setups let the agent verify itself, whole-page visual regression (Playwright, Percy) diffs a full-page baseline in CI, and chrome-devtools-mcp gives an agent the ability to read the DOM and take screenshots. Nodepact repeats none of that. It makes the render diff of the node you pointed at the acceptance signal, over the same CDP path, using chrome-remote-interface directly with no layer in between."
+        },
+        "image": {
+          "light": "/assets/presentation/integrations-light.svg",
+          "dark": "/assets/presentation/integrations-dark.svg",
+          "alt": {
+            "zh": "spotnote、reticle、整页视觉回归、chrome-devtools-mcp 与 Nodepact 各自的职责分工",
+            "en": "Division of responsibility between spotnote, reticle, whole-page visual regression, chrome-devtools-mcp and Nodepact"
+          },
+          "mobile": {
+            "light": "/assets/presentation/integrations-mobile-light.svg",
+            "dark": "/assets/presentation/integrations-mobile-dark.svg"
+          }
+        }
+      }
+    ],
+    "details": [
+      {
+        "title": {
+          "zh": "断言 DSL 与 steer.yaml",
+          "en": "The assertion DSL and steer.yaml"
+        },
+        "body": {
+          "zh": "只有三种断言，一行一条：gap(#email, #submit) >= 12px 取两个盒子边缘到边缘的距离（上下排布取垂直间距，左右并排取水平间距，重叠为 0）；style(display) == flex 读锚定节点的 computed style；changed() 表示相对基线确实变了。steer.yaml 里存的是等价的块，不是这一行字符串——YAML 遇到 \" #\" 就结束一个纯量，手写 assertion: gap(#email, #submit) >= 12px 会被安静地解析成 gap(#email,，所以选择器值一律加引号、断言用块。改断言时记得把 baseline_measure 置为 null，免得 check 打出一个过期的 before 值。",
+          "en": "There are three assertion kinds, one per line: gap(#email, #submit) >= 12px takes the edge-to-edge distance between two boxes (vertical when stacked, horizontal when side by side, zero when they overlap); style(display) == flex reads the anchored node's computed style; changed() means the node really changed from its baseline. steer.yaml stores the equivalent block, not that one-line string: YAML ends a plain value at \" #\", so a hand-written assertion: gap(#email, #submit) >= 12px would quietly parse as gap(#email, - selectors are therefore quoted and the assertion is a block. When you change an assertion, set baseline_measure back to null so check does not print a stale before value."
+        },
+        "code": "version: 1\npairs:\n  - anchor:\n      id: submit\n      selector: \"#submit\"\n      fp: button#submit[type=button]|div>form#settings>main|t:b6fc31\n      baseline_png: .nodepact/baseline/submit.png\n      box: { x: 431, y: 226.59375, w: 68, h: 46 }\n    annotation: 提交按钮和上面的邮箱输入框太近了\n    assertion:\n      kind: gap\n      a: \"#email\"\n      b: \"#submit\"\n      op: \">=\"\n      px: 12\n    baseline_measure: 4"
+      },
+      {
+        "title": {
+          "zh": "nodepact.yaml 里能调什么",
+          "en": "What nodepact.yaml lets you tune"
+        },
+        "body": {
+          "zh": "cdp.host / cdp.port 决定连哪个 DevTools 端点，cdp.url_match 只挂 URL 以它开头的那个页面（null 时要求只有一个打开页面）。oracle.epsilon（默认 0.01）是渲染差异达到多少才算「节点真的变了」，DONE 需要它；oracle.stability_floor 是噪声上限；oracle.capture_scale=1 让裁剪不受屏幕 DPR 影响；oracle.capture_margin=16 是节点四周多裁的像素。模型只在 annotate 起草断言时用到，判定完全不受影响。",
+          "en": "cdp.host / cdp.port pick which DevTools endpoint to attach to, and cdp.url_match attaches only to the page whose URL starts with it (null requires exactly one open page). oracle.epsilon (0.01 by default) is how large a render diff must be for the node to count as really changed, and DONE requires it; oracle.stability_floor is the noise ceiling; oracle.capture_scale=1 keeps the crop independent of the display DPR; oracle.capture_margin=16 is the extra crop around the node. The model is used only when annotate drafts an assertion; the verdict does not depend on it at all."
+        },
+        "code": "cdp:\n  host: 127.0.0.1\n  port: 9222\n  url_match: null\noracle:\n  epsilon: 0.01\n  stability_floor: 0.01\n  capture_scale: 1\n  capture_margin: 16\n  pixel_threshold: 0.1\nmodel:\n  provider: deepseek\n  timeout_ms: 20000"
+      },
+      {
+        "title": {
+          "zh": "接进 coding agent（MCP）",
+          "en": "Wiring it into a coding agent (MCP)"
+        },
+        "body": {
+          "zh": "nodepact mcp --install 打印一段客户端配置，粘到你的 agent 配置里就行。暴露两个工具：nodepact.check（可选 node 参数，省略则检查全部）重新渲染并返回 DONE / NOT_DONE / UNSTABLE、实测值、像素差异与产物路径；nodepact.list 列出本项目存的纠偏对。MCP 只是最后一公里——整套东西从 CLI 就能跑，不需要任何 agent。",
+          "en": "nodepact mcp --install prints a client config snippet to paste into your agent's config. It exposes two tools: nodepact.check (optional node argument; omitted means check everything) re-renders and returns DONE / NOT_DONE / UNSTABLE with the measured value, the pixel diff and the artifact paths; nodepact.list lists the steering pairs stored for this project. MCP is only the last mile - the whole thing runs from the CLI with no agent at all."
+        },
+        "code": "nodepact mcp --install\n\n{\n  \"mcpServers\": {\n    \"nodepact\": {\n      \"command\": \"npx\",\n      \"args\": [\"-y\", \"nodepact\", \"mcp\", \"--config\", \"/your/project/nodepact.yaml\", \"--store\", \"/your/project/.nodepact\"]\n    }\n  }\n}"
+      }
+    ]
+  },
+  "demo": {
+    "title": {
+      "zh": "一次真实运行的全部数字",
+      "en": "Every number from one real run"
+    },
+    "note": {
+      "zh": "下面每一步的命令与输出都逐字来自这次运行，记录在 docs/demo-results.json。环境是 node 22 加开发者自己开的 Chrome（CDP，127.0.0.1:9222；Nodepact 不启动任何浏览器），判定路径上没有模型。示例页面是仓库里那个故意做错的设置页：提交按钮和邮箱输入框只隔 4px。数字来自一次真实运行（capture_scale = 1，devicePixelRatio = 1）；换屏幕缩放，裁剪尺寸会变，判定不会——判定看的是断言实测值与差异占比，不是像素的绝对数量。",
+      "en": "Every command and output below is copied verbatim from that run, recorded in docs/demo-results.json. The environment is node 22 plus the developer's own Chrome over CDP at 127.0.0.1:9222 (Nodepact launches no browser), with no model on the verdict path. The demo page is the deliberately wrong settings page shipped in the repo: the submit button sits only 4px under the email field. The numbers come from one real run (capture_scale 1, devicePixelRatio 1); a different display scale changes the crop size but not the verdict, which reads the measured value and the diff ratio rather than absolute pixels."
+    },
+    "source": "https://github.com/SuperMarioYL/nodepact/blob/main/docs/demo-results.json",
+    "steps": [
+      {
+        "label": {
+          "zh": "init：挂上你已开的 Chrome",
+          "en": "init: attach to your open Chrome"
+        },
+        "body": {
+          "zh": "在开发者已经打开的 Chrome 上挂载（它不会自己启动浏览器），写本地 store，指向下一步。",
+          "en": "Attaches to the Chrome the developer already started (it never launches one), writes the local store and points at the next step."
+        },
+        "image": "/assets/presentation/demo-init-light.svg",
+        "imageDark": "/assets/presentation/demo-init-dark.svg",
+        "command": "nodepact init --url http://localhost:5173",
+        "output": "attached to Chrome via CDP  ws://127.0.0.1:9222/devtools/page/4C2E9A7B1D3F5E6081A2B3C4D5E6F708   page: /\nconfig   nodepact.yaml\nstore    .nodepact/\nnext     nodepact annotate"
+      },
+      {
+        "label": {
+          "zh": "annotate：点一个节点，写一句中文",
+          "en": "annotate: point at a node, write one Chinese line"
+        },
+        "body": {
+          "zh": "浮层出现在页面右下角。点选提交按钮，写下「提交按钮和上面的邮箱输入框太近了」，确认它起草出的断言；同时抓下这个节点的基线裁剪（68x46）。",
+          "en": "The overlay appears at the bottom right of the page. Pick the submit button, type the annotation, and confirm the drafted assertion; the node's baseline crop (68x46) is captured at the same time."
+        },
+        "image": "/assets/presentation/demo-annotate-light.svg",
+        "imageDark": "/assets/presentation/demo-annotate-dark.svg",
+        "command": "nodepact annotate",
+        "output": "click a node ...\npicked #submit  fp 99ceb4\nannotation (zh): 提交按钮和上面的邮箱输入框太近了\ndraft assertion: gap(#email, #submit) >= 12px      [y / edit / n]\naccept? y\nsaved to .nodepact/steer.yaml   (node fp 99ceb4, baseline 68x46)\nnext: nodepact check"
+      },
+      {
+        "label": {
+          "zh": "check：还没改，NOT_DONE",
+          "en": "check: before the fix, NOT_DONE"
+        },
+        "body": {
+          "zh": "断言要求间距 ≥ 12px，实测只有 4px，所以断言不成立；渲染差异是 0px，这个节点还没被动过。",
+          "en": "The assertion asks for a gap of at least 12px and measures 4px, so it does not hold; the render diff is 0px because the node has not been touched yet."
+        },
+        "image": "/assets/presentation/demo-notdone-light.svg",
+        "imageDark": "/assets/presentation/demo-notdone-dark.svg",
+        "command": "nodepact check --json",
+        "output": "{\n  \"node\": \"#submit\",\n  \"anchor_id\": \"submit\",\n  \"anchor_fp\": \"99ceb4\",\n  \"matched_by\": \"selector\",\n  \"match_score\": 1,\n  \"assertion\": \"gap(#email, #submit) >= 12px\",\n  \"before\": 4,\n  \"after\": 4,\n  \"assertion_pass\": false,\n  \"assertion_detail\": \"gap 4px >= 12px -> fail\",\n  \"render_diff\": {\n    \"changed_px\": 0,\n    \"total_px\": 7900,\n    \"ratio\": 0,\n    \"noise_ratio\": 0,\n    \"epsilon\": 0.01,\n    \"stability_floor\": 0.01,\n    \"artifact\": \".nodepact/diffs/submit.after.png\",\n    \"diff_artifact\": \".nodepact/diffs/submit.diff.png\"\n  },\n  \"verdict\": \"NOT_DONE\",\n  \"reason\": \"assertion does not hold: gap 4px >= 12px -> fail\",\n  \"checked_at\": \"2026-10-26T02:41:07.482Z\"\n}"
+      },
+      {
+        "label": {
+          "zh": "改一行 CSS 后再 check：仍是 NOT_DONE",
+          "en": "After one CSS line, still NOT_DONE"
+        },
+        "body": {
+          "zh": "把 #email { margin-bottom: 4px } 改成 14px。但 check 读的是 Chrome 里当前这个页面，它从不替你刷新；python3 -m http.server 这类静态服务器没有 HMR，所以第二次 check 仍然读到旧的 4px，判定不变。",
+          "en": "The CSS goes from #email { margin-bottom: 4px } to 14px. But check reads the page as it is open in Chrome and never reloads it: a plain static server like python3 -m http.server has no HMR, so the second check still measures the old 4px and the verdict does not move."
+        },
+        "image": "/assets/presentation/demo-stale-light.svg",
+        "imageDark": "/assets/presentation/demo-stale-dark.svg",
+        "command": "nodepact check --json",
+        "output": "{\n  \"node\": \"#submit\",\n  \"anchor_id\": \"submit\",\n  \"anchor_fp\": \"99ceb4\",\n  \"matched_by\": \"selector\",\n  \"match_score\": 1,\n  \"assertion\": \"gap(#email, #submit) >= 12px\",\n  \"before\": 4,\n  \"after\": 4,\n  \"assertion_pass\": false,\n  \"assertion_detail\": \"gap 4px >= 12px -> fail\",\n  \"render_diff\": {\n    \"changed_px\": 0,\n    \"total_px\": 7900,\n    \"ratio\": 0,\n    \"noise_ratio\": 0,\n    \"epsilon\": 0.01,\n    \"stability_floor\": 0.01,\n    \"artifact\": \".nodepact/diffs/submit.after.png\",\n    \"diff_artifact\": \".nodepact/diffs/submit.diff.png\"\n  },\n  \"verdict\": \"NOT_DONE\",\n  \"reason\": \"assertion does not hold: gap 4px >= 12px -> fail\",\n  \"checked_at\": \"2026-10-26T02:42:31.904Z\"\n}"
+      },
+      {
+        "label": {
+          "zh": "在 Chrome 里刷新后再 check：DONE",
+          "en": "Reload in Chrome, check again: DONE"
+        },
+        "body": {
+          "zh": "在 Chrome 里按 Cmd-R / F5 重新加载页面，第三次 check 实测 14px，断言成立，且这个节点相对基线变了 2.09%（≥ ε 1.00%），判定翻成 DONE，退出码 0。用带 HMR 的 dev server 时，刷新这一步是自动的。",
+          "en": "Press Cmd-R / F5 in Chrome to reload, and the third check measures 14px: the assertion holds and the node has changed by 2.09% from its baseline (>= the 1.00% epsilon), so the verdict flips to DONE with exit code 0. With a dev server that has HMR, that reload happens for you."
+        },
+        "image": "/assets/presentation/demo-done-light.svg",
+        "imageDark": "/assets/presentation/demo-done-dark.svg",
+        "command": "nodepact check --json",
+        "output": "{\n  \"node\": \"#submit\",\n  \"anchor_id\": \"submit\",\n  \"anchor_fp\": \"99ceb4\",\n  \"matched_by\": \"selector\",\n  \"match_score\": 1,\n  \"assertion\": \"gap(#email, #submit) >= 12px\",\n  \"before\": 4,\n  \"after\": 14,\n  \"assertion_pass\": true,\n  \"assertion_detail\": \"gap 14px >= 12px -> pass\",\n  \"render_diff\": {\n    \"changed_px\": 165,\n    \"total_px\": 7900,\n    \"ratio\": 0.0209,\n    \"noise_ratio\": 0,\n    \"epsilon\": 0.01,\n    \"stability_floor\": 0.01,\n    \"artifact\": \".nodepact/diffs/submit.after.png\",\n    \"diff_artifact\": \".nodepact/diffs/submit.diff.png\"\n  },\n  \"verdict\": \"DONE\",\n  \"reason\": \"assertion holds and the node changed by 2.09% (≥ epsilon 1.00%)\",\n  \"checked_at\": \"2026-10-26T02:44:52.115Z\"\n}"
+      }
+    ]
+  },
+  "quickstart": {
+    "title": {
+      "zh": "十分钟跑到第一个 DONE",
+      "en": "Ten minutes to your first DONE"
+    },
+    "body": {
+      "zh": "需要一个 Node 22+ 的环境，和一次 Chrome 的重启。下面每条都能直接复制执行；示例页面随仓库提供，不需要先接自己的项目。",
+      "en": "You need Node 22+ and one Chrome restart. Every command below is runnable as written; the demo page ships with the repo, so no project of your own is needed first."
+    },
+    "steps": [
+      {
+        "title": {
+          "zh": "安装（从源码构建）",
+          "en": "Install (build from source)"
+        },
+        "code": "git clone https://github.com/SuperMarioYL/nodepact.git && cd nodepact\nnpm ci && npm run build\nnpm link"
+      },
+      {
+        "title": {
+          "zh": "让 Chrome 打开调试端口",
+          "en": "Open Chrome's debugging port"
+        },
+        "code": "# macOS\n\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --remote-debugging-port=9222\n# Linux\ngoogle-chrome --remote-debugging-port=9222"
+      },
+      {
+        "title": {
+          "zh": "起示例页面（这就是输入）",
+          "en": "Serve the demo page (this is the input)"
+        },
+        "code": "python3 -m http.server 5173 --directory examples/demo-app\n# then open http://localhost:5173"
+      },
+      {
+        "title": {
+          "zh": "挂上去、点选、写批注",
+          "en": "Attach, pick a node, write the annotation"
+        },
+        "code": "nodepact init --url http://localhost:5173\nnodepact annotate"
+      },
+      {
+        "title": {
+          "zh": "改一行 CSS，刷新，看判定",
+          "en": "Edit one CSS line, reload, read the verdict"
+        },
+        "code": "# examples/demo-app/index.html: #email { margin-bottom: 4px } -> 14px\n# reload the page in Chrome (Cmd-R / F5): a static server has no HMR\nnodepact check"
+      },
+      {
+        "title": {
+          "zh": "让 agent 自己循环到 DONE",
+          "en": "Let the agent loop to DONE"
+        },
+        "code": "nodepact mcp --install"
+      }
+    ]
+  },
+  "limitations": [
+    {
+      "zh": "只连 Chromium：CDP 是 Chromium 的协议，Firefox / Safari 不支持；而且它只连你自己已经打开的那个浏览器，从不启动浏览器。",
+      "en": "Chromium only: CDP is Chromium's protocol, so Firefox and Safari are not supported, and it only attaches to the browser you already started - it never launches one."
+    },
+    {
+      "zh": "只判定，不改码：不自动改 DOM、不自动修代码，也没有任何自动修复。",
+      "en": "It judges, it does not fix: no automatic DOM edits, no source edits, no auto-repair of any kind."
+    },
+    {
+      "zh": "check 读的是 Chrome 里当前的页面，从不替你刷新：用 python3 -m http.server 这类静态服务器时，改完源码必须手动刷新页面，否则第二次 check 仍是 NOT_DONE；带 HMR 的 dev server 会自动刷新。",
+      "en": "check reads the page as it is now in Chrome and never reloads it: with a plain static server such as python3 -m http.server a source edit stays invisible until you reload the page by hand, so the second check is still NOT_DONE. A dev server with HMR reloads for you."
+    },
+    {
+      "zh": "断言只有三类（gap / style / changed），不做布局树推理，也不做跨页面、多路由的流程断言。",
+      "en": "Three assertion kinds only (gap, style, changed); no layout-tree reasoning and no cross-page or multi-route flow assertions."
+    },
+    {
+      "zh": "不做 CI 与无头视觉回归：基线是你自己那台机器、你那个窗口的截图，所以 .nodepact/ 被 git 忽略，换台机器要重新 annotate。",
+      "en": "No CI mode and no headless run: the baseline is a crop of your own window on your own machine, so .nodepact/ is git-ignored and a different machine needs a fresh annotate."
+    },
+    {
+      "zh": "不做浏览器商店扩展、Web 面板 / 云控制台 / 多用户 / 登录 / 团队服务端，也没有托管服务；只有 CLI + MCP + 注入式浮层。",
+      "en": "No browser-store extension, no web dashboard, cloud console, multi-user, login or team server, and no hosted service; there is only the CLI, the MCP server and an injected overlay."
+    },
+    {
+      "zh": "配置里内置的模型名（deepseek-chat / qwen-plus / glm-5 / moonshot-v1-auto）来自各家控制台，未做在线校验；GLM 的 OpenAI 兼容地址留空，按你的网关填。判定不依赖模型，模型名写错只影响 annotate 起草。",
+      "en": "The model ids shipped in the config (deepseek-chat, qwen-plus, glm-5, moonshot-v1-auto) come from each vendor's console and are not verified by an API call; GLM's OpenAI-compatible base_url is left empty for you to fill in. The verdict does not depend on the model, so a wrong id only affects annotate's draft."
+    }
+  ],
+  "cta": {
+    "headline": {
+      "zh": "先在你的仓库上跑出一次 DONE",
+      "en": "Run one DONE on your own repo"
+    },
+    "button": {
+      "zh": "在 GitHub 上开始",
+      "en": "Get started on GitHub"
+    }
+  },
+  "footer": {
+    "tag": {
+      "zh": "Node 22+ · MIT · 只连 Chromium · 只判定不改码",
+      "en": "Node 22+ · MIT · Chromium only · it judges, it never edits"
+    }
+  }
+}

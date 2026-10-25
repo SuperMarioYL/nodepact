@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1000" viewBox="0 0 720 1000" role="img" aria-label="Nodepact core process" data-palette="5656e6-ac6ae7-acc7f6-8d5838409548">
+  <style>
+    text { font-family: -apple-system,'Segoe UI','PingFang SC','Noto Sans SC','Microsoft YaHei',sans-serif; }
+    .mono { font-family: 'SF Mono','JetBrains Mono','Cascadia Code',ui-monospace,Menlo,Consolas,monospace; }
+    .zh { font-family: -apple-system,'Segoe UI','PingFang SC','Noto Sans SC','Microsoft YaHei',sans-serif; }
+    .drift1 { animation: drift1 7s ease-in-out infinite alternate; }
+    .drift2 { animation: drift2 9s ease-in-out infinite alternate; }
+    .pulse  { animation: pulse 2.6s ease-in-out infinite; }
+    .pulse2 { animation: pulse2 3.4s ease-in-out infinite; }
+    .flow   { stroke-dasharray: 6 8; animation: march 1.6s linear infinite; }
+    .flow-slow { stroke-dasharray: 5 9; animation: march 3.2s linear infinite; }
+    .blink  { animation: blink 2.4s steps(2, jump-none) infinite; }
+    @keyframes drift1 { from { transform: translate(0,0); } to { transform: translate(14px,-18px); } }
+    @keyframes drift2 { from { transform: translate(0,0); } to { transform: translate(-12px,16px); } }
+    @keyframes pulse  { 0%,100% { opacity: .25; } 50% { opacity: 1; } }
+    @keyframes pulse2 { 0%,100% { opacity: .9; } 45% { opacity: .25; } }
+    @keyframes march  { to { stroke-dashoffset: -28; } }
+    @keyframes blink  { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+    @media (prefers-reduced-motion: reduce) {
+      .drift1,.drift2,.pulse,.pulse2,.flow,.flow-slow,.blink { animation: none; }
+    }</style>
+  <rect width="720" height="1000" fill="#f9f9fe"/>
+  <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <radialGradient id="halo" cx="50%" cy="42%" r="55%">
+    <stop offset="0%" stop-color="#5656e6" stop-opacity="0.18"/>
+    <stop offset="60%" stop-color="#8d57bd" stop-opacity="0.06"/>
+    <stop offset="100%" stop-color="#f9f9fe" stop-opacity="0"/>
+  </radialGradient>
+  <g><line x1="60" y1="0" x2="60" y2="1000" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/>
+<line x1="180" y1="0" x2="180" y2="1000" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/>
+<line x1="300" y1="0" x2="300" y2="1000" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/>
+<line x1="420" y1="0" x2="420" y2="1000" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/>
+<line x1="540" y1="0" x2="540" y2="1000" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/>
+<line x1="660" y1="0" x2="660" y2="1000" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="60" x2="720" y2="60" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="180" x2="720" y2="180" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="300" x2="720" y2="300" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="420" x2="720" y2="420" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="540" x2="720" y2="540" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="660" x2="720" y2="660" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="780" x2="720" y2="780" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="900" x2="720" y2="900" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/><g class="drift1"><circle cx="55.0" cy="190.0" r="1" fill="#61708b" opacity="0.10"/><circle cx="566.0" cy="429.0" r="1.7" fill="#5656e6" opacity="0.15"/><circle cx="69.0" cy="378.0" r="2.4" fill="#61708b" opacity="0.20"/><circle cx="188.0" cy="557.0" r="1" fill="#5656e6" opacity="0.25"/><circle cx="475.0" cy="486.0" r="1.7" fill="#61708b" opacity="0.10"/><circle cx="426.0" cy="985.0" r="2.4" fill="#5656e6" opacity="0.15"/><circle cx="349.0" cy="694.0" r="1" fill="#61708b" opacity="0.20"/><circle cx="328.0" cy="793.0" r="1.7" fill="#5656e6" opacity="0.25"/><circle cx="195.0" cy="42.0" r="2.4" fill="#61708b" opacity="0.10"/><circle cx="286.0" cy="641.0" r="1" fill="#5656e6" opacity="0.15"/><circle cx="629.0" cy="710.0" r="1.7" fill="#61708b" opacity="0.20"/><circle cx="468.0" cy="929.0" r="2.4" fill="#5656e6" opacity="0.25"/><circle cx="615.0" cy="218.0" r="1" fill="#61708b" opacity="0.10"/><circle cx="146.0" cy="177.0" r="1.7" fill="#5656e6" opacity="0.15"/><circle cx="209.0" cy="686.0" r="2.4" fill="#61708b" opacity="0.20"/></g><g class="drift2"><circle cx="608.0" cy="725.0" r="1" fill="#5656e6" opacity="0.25"/><circle cx="335.0" cy="934.0" r="1.7" fill="#61708b" opacity="0.10"/><circle cx="706.0" cy="873.0" r="2.4" fill="#5656e6" opacity="0.15"/><circle cx="489.0" cy="722.0" r="1" fill="#61708b" opacity="0.20"/><circle cx="48.0" cy="541.0" r="1.7" fill="#5656e6" opacity="0.25"/><circle cx="55.0" cy="350.0" r="2.4" fill="#61708b" opacity="0.10"/><circle cx="566.0" cy="809.0" r="1" fill="#5656e6" opacity="0.15"/><circle cx="69.0" cy="178.0" r="1.7" fill="#61708b" opacity="0.20"/><circle cx="188.0" cy="817.0" r="2.4" fill="#5656e6" opacity="0.25"/><circle cx="475.0" cy="246.0" r="1" fill="#61708b" opacity="0.10"/><circle cx="426.0" cy="905.0" r="1.7" fill="#5656e6" opacity="0.15"/><circle cx="349.0" cy="14.0" r="2.4" fill="#61708b" opacity="0.20"/><circle cx="328.0" cy="893.0" r="1" fill="#5656e6" opacity="0.25"/><circle cx="195.0" cy="402.0" r="1.7" fill="#61708b" opacity="0.10"/><circle cx="286.0" cy="761.0" r="2.4" fill="#5656e6" opacity="0.15"/></g></g>
+  <text x="40" y="58" font-size="27" font-weight="600" fill="#131630">一次闭环 <tspan fill="#555e88" font-size="17">· 五条命令</tspan></text>
+  <text x="40" y="88" font-size="14" class="mono" fill="#555e88">init · annotate · check · label · mcp</text>
+  <g>
+        <rect x="40" y="120" width="640" height="124" rx="12" fill="#f7f7fe" stroke="#cbcbf7" stroke-width="1.4"/>
+        <circle cx="88" cy="164" r="21" fill="#f3f3fd" stroke="#8d57bd" stroke-width="1.6"/>
+        <text x="88" y="171" text-anchor="middle" font-size="17" class="mono" fill="#5656e6">01</text>
+        <text x="130" y="170" font-size="26" font-weight="600" fill="#131630">init</text>
+        <text x="130" y="196" font-size="14" class="mono" fill="#555e88">attach over CDP</text>
+        <text x="60" y="226" font-size="14" fill="#555e88">只连你已开的 Chrome</text>
+        <path d="M 88 244 L 88 288" stroke="#5656e6" stroke-width="1.8" class="flow" fill="none"/>
+      </g>
+<g>
+        <rect x="40" y="288" width="640" height="124" rx="12" fill="#f7f7fe" stroke="#cbcbf7" stroke-width="1.4"/>
+        <circle cx="88" cy="332" r="21" fill="#f3f3fd" stroke="#8d57bd" stroke-width="1.6"/>
+        <text x="88" y="339" text-anchor="middle" font-size="17" class="mono" fill="#5656e6">02</text>
+        <text x="130" y="338" font-size="26" font-weight="600" fill="#131630">annotate</text>
+        <text x="130" y="364" font-size="14" class="mono" fill="#555e88">pick + annotate</text>
+        <text x="60" y="394" font-size="14" fill="#555e88">中文批注 → 断言草稿</text>
+        <path d="M 88 412 L 88 456" stroke="#5656e6" stroke-width="1.8" class="flow" fill="none"/>
+      </g>
+<g>
+        <rect x="40" y="456" width="640" height="124" rx="12" fill="#f7f7fe" stroke="#cbcbf7" stroke-width="1.4"/>
+        <circle cx="88" cy="500" r="21" fill="#f3f3fd" stroke="#8d57bd" stroke-width="1.6"/>
+        <text x="88" y="507" text-anchor="middle" font-size="17" class="mono" fill="#5656e6">03</text>
+        <text x="130" y="506" font-size="26" font-weight="600" fill="#131630">check</text>
+        <text x="130" y="532" font-size="14" class="mono" fill="#555e88">re-render + diff</text>
+        <text x="60" y="562" font-size="14" fill="#555e88">断言实测 + 像素差异</text>
+        <path d="M 88 580 L 88 624" stroke="#5656e6" stroke-width="1.8" class="flow" fill="none"/>
+      </g>
+<g>
+        <rect x="40" y="624" width="640" height="124" rx="12" fill="#f7f7fe" stroke="#5656e6" stroke-width="1.8"/>
+        <circle cx="88" cy="668" r="21" fill="#f3f3fd" stroke="#5656e6" stroke-width="1.6"/>
+        <text x="88" y="675" text-anchor="middle" font-size="17" class="mono" fill="#5656e6">04</text>
+        <text x="130" y="674" font-size="26" font-weight="600" fill="#131630">verdict</text>
+        <text x="130" y="700" font-size="14" class="mono" fill="#555e88">three states</text>
+        <text x="60" y="730" font-size="14" fill="#555e88">判定路径上没有模型</text>
+        <path d="M 88 748 L 88 792" stroke="#5656e6" stroke-width="1.8" class="flow" fill="none"/>
+      </g>
+<g>
+        <rect x="40" y="792" width="640" height="124" rx="12" fill="#f7f7fe" stroke="#cbcbf7" stroke-width="1.4"/>
+        <circle cx="88" cy="836" r="21" fill="#f3f3fd" stroke="#8d57bd" stroke-width="1.6"/>
+        <text x="88" y="843" text-anchor="middle" font-size="17" class="mono" fill="#5656e6">05</text>
+        <text x="130" y="842" font-size="26" font-weight="600" fill="#131630">mcp</text>
+        <text x="130" y="868" font-size="14" class="mono" fill="#555e88">agent loop</text>
+        <text x="60" y="898" font-size="14" fill="#555e88">agent 自己循环到 DONE</text>
+        
+      </g>
+  <text x="40" y="976" font-size="14" fill="#555e88">DONE ⟺ 断言成立 ∧ 差异占比 ≥ ε　·　NOT_DONE 其余　·　UNSTABLE 噪声超上限</text>
+
+</svg>

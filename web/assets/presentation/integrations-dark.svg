@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="564" viewBox="0 0 1200 564" role="img" aria-label="Nodepact capabilities and integration" data-palette="5656e6-ac6ae7-acc7f6-8d5838409548">
+  <style>
+    text { font-family: -apple-system,'Segoe UI','PingFang SC','Noto Sans SC','Microsoft YaHei',sans-serif; }
+    .mono { font-family: 'SF Mono','JetBrains Mono','Cascadia Code',ui-monospace,Menlo,Consolas,monospace; }
+    .zh { font-family: -apple-system,'Segoe UI','PingFang SC','Noto Sans SC','Microsoft YaHei',sans-serif; }
+    .drift1 { animation: drift1 7s ease-in-out infinite alternate; }
+    .drift2 { animation: drift2 9s ease-in-out infinite alternate; }
+    .pulse  { animation: pulse 2.6s ease-in-out infinite; }
+    .pulse2 { animation: pulse2 3.4s ease-in-out infinite; }
+    .flow   { stroke-dasharray: 6 8; animation: march 1.6s linear infinite; }
+    .flow-slow { stroke-dasharray: 5 9; animation: march 3.2s linear infinite; }
+    .blink  { animation: blink 2.4s steps(2, jump-none) infinite; }
+    @keyframes drift1 { from { transform: translate(0,0); } to { transform: translate(14px,-18px); } }
+    @keyframes drift2 { from { transform: translate(0,0); } to { transform: translate(-12px,16px); } }
+    @keyframes pulse  { 0%,100% { opacity: .25; } 50% { opacity: 1; } }
+    @keyframes pulse2 { 0%,100% { opacity: .9; } 45% { opacity: .25; } }
+    @keyframes march  { to { stroke-dashoffset: -28; } }
+    @keyframes blink  { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+    @media (prefers-reduced-motion: reduce) {
+      .drift1,.drift2,.pulse,.pulse2,.flow,.flow-slow,.blink { animation: none; }
+    }</style>
+  <rect width="1200" height="564" fill="#050712"/>
+  <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <radialGradient id="halo" cx="50%" cy="42%" r="55%">
+    <stop offset="0%" stop-color="#6d6de9" stop-opacity="0.18"/>
+    <stop offset="60%" stop-color="#ac6ae7" stop-opacity="0.06"/>
+    <stop offset="100%" stop-color="#050712" stop-opacity="0"/>
+  </radialGradient>
+  <g><line x1="60" y1="0" x2="60" y2="564" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="180" y1="0" x2="180" y2="564" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="300" y1="0" x2="300" y2="564" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="420" y1="0" x2="420" y2="564" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="540" y1="0" x2="540" y2="564" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="660" y1="0" x2="660" y2="564" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="780" y1="0" x2="780" y2="564" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="900" y1="0" x2="900" y2="564" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="1020" y1="0" x2="1020" y2="564" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="1140" y1="0" x2="1140" y2="564" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="60" x2="1200" y2="60" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="180" x2="1200" y2="180" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="300" x2="1200" y2="300" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="420" x2="1200" y2="420" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="540" x2="1200" y2="540" stroke="#171841" stroke-width="0.5" opacity="0.5"/><g class="drift1"><circle cx="891.0" cy="414.0" r="1" fill="#acc7f6" opacity="0.10"/><circle cx="194.0" cy="417.0" r="1.7" fill="#6d6de9" opacity="0.15"/><circle cx="53.0" cy="266.0" r="2.4" fill="#acc7f6" opacity="0.20"/><circle cx="380.0" cy="69.0" r="1" fill="#6d6de9" opacity="0.25"/><circle cx="651.0" cy="374.0" r="1.7" fill="#acc7f6" opacity="0.10"/><circle cx="374.0" cy="73.0" r="2.4" fill="#6d6de9" opacity="0.15"/><circle cx="213.0" cy="354.0" r="1" fill="#acc7f6" opacity="0.20"/><circle cx="260.0" cy="173.0" r="1.7" fill="#6d6de9" opacity="0.25"/><circle cx="151.0" cy="398.0" r="2.4" fill="#acc7f6" opacity="0.10"/><circle cx="454.0" cy="497.0" r="1" fill="#6d6de9" opacity="0.15"/><circle cx="153.0" cy="410.0" r="1.7" fill="#acc7f6" opacity="0.20"/><circle cx="600.0" cy="437.0" r="2.4" fill="#6d6de9" opacity="0.25"/><circle cx="191.0" cy="166.0" r="1" fill="#acc7f6" opacity="0.10"/><circle cx="1014.0" cy="25.0" r="1.7" fill="#6d6de9" opacity="0.15"/><circle cx="913.0" cy="50.0" r="2.4" fill="#acc7f6" opacity="0.20"/></g><g class="drift2"><circle cx="620.0" cy="61.0" r="1" fill="#6d6de9" opacity="0.25"/><circle cx="471.0" cy="414.0" r="1.7" fill="#acc7f6" opacity="0.10"/><circle cx="214.0" cy="417.0" r="2.4" fill="#6d6de9" opacity="0.15"/><circle cx="333.0" cy="266.0" r="1" fill="#acc7f6" opacity="0.20"/><circle cx="760.0" cy="69.0" r="1.7" fill="#6d6de9" opacity="0.25"/><circle cx="71.0" cy="374.0" r="2.4" fill="#acc7f6" opacity="0.10"/><circle cx="514.0" cy="73.0" r="1" fill="#6d6de9" opacity="0.15"/><circle cx="993.0" cy="354.0" r="1.7" fill="#acc7f6" opacity="0.20"/><circle cx="560.0" cy="173.0" r="2.4" fill="#6d6de9" opacity="0.25"/><circle cx="811.0" cy="398.0" r="1" fill="#acc7f6" opacity="0.10"/><circle cx="254.0" cy="497.0" r="1.7" fill="#6d6de9" opacity="0.15"/><circle cx="893.0" cy="410.0" r="2.4" fill="#acc7f6" opacity="0.20"/><circle cx="340.0" cy="437.0" r="1" fill="#6d6de9" opacity="0.25"/><circle cx="91.0" cy="166.0" r="1.7" fill="#acc7f6" opacity="0.10"/><circle cx="794.0" cy="25.0" r="2.4" fill="#6d6de9" opacity="0.15"/></g></g>
+  <text x="40" y="50" font-size="24" font-weight="600" fill="#eef4fd">能力与集成 <tspan fill="#959cc4" font-size="16">· 相邻工具各占一半，Nodepact 补的是验收信号</tspan></text>
+
+  <path d="M 600 288 Q 624 198 600 108" fill="none" stroke="#6d6de9" stroke-width="1.5" class="flow" opacity="0.9"/>
+<path d="M 600 288 Q 765 312 930 288" fill="none" stroke="#ac6ae7" stroke-width="1.5" class="flow-slow" opacity="0.9"/>
+<path d="M 600 288 Q 576 378 600 468" fill="none" stroke="#6d6de9" stroke-width="1.5" class="flow" opacity="0.9"/>
+<path d="M 600 288 Q 435 264 270 288" fill="none" stroke="#ac6ae7" stroke-width="1.5" class="flow-slow" opacity="0.9"/>
+  <g>
+    <rect x="450" y="72" width="300" height="72" rx="12" fill="#0c101f" stroke="#171841" stroke-width="1.4"/>
+    <text x="600" y="102" text-anchor="middle" font-size="17" fill="#eef4fd">spotnote</text>
+    <text x="600" y="128" text-anchor="middle" font-size="12.5" fill="#959cc4">把批注投递给 agent</text>
+  </g>
+<g>
+    <rect x="780" y="252" width="300" height="72" rx="12" fill="#0c101f" stroke="#171841" stroke-width="1.4"/>
+    <text x="930" y="282" text-anchor="middle" font-size="17" fill="#eef4fd">reticle 一类</text>
+    <text x="930" y="308" text-anchor="middle" font-size="12.5" fill="#959cc4">让 agent 自证</text>
+  </g>
+<g>
+    <rect x="450" y="432" width="300" height="72" rx="12" fill="#0c101f" stroke="#171841" stroke-width="1.4"/>
+    <text x="600" y="462" text-anchor="middle" font-size="17" fill="#eef4fd">Playwright / Percy</text>
+    <text x="600" y="488" text-anchor="middle" font-size="12.5" fill="#959cc4">CI 里比整页基线</text>
+  </g>
+<g>
+    <rect x="120" y="252" width="300" height="72" rx="12" fill="#0c101f" stroke="#171841" stroke-width="1.4"/>
+    <text x="270" y="282" text-anchor="middle" font-size="17" fill="#eef4fd">chrome-devtools-mcp</text>
+    <text x="270" y="308" text-anchor="middle" font-size="12.5" fill="#959cc4">agent 读 DOM、截图</text>
+  </g>
+
+  <g filter="url(#glow)">
+    <circle cx="600" cy="288" r="112" fill="#0c101f" stroke="#6d6de9" stroke-width="2.2"/>
+    <circle cx="600" cy="288" r="140" fill="none" stroke="#171841" stroke-width="1" class="pulse"/>
+  </g>
+  <text x="600" y="270" text-anchor="middle" font-size="27" font-weight="700" fill="#eef4fd">Node<tspan fill="#6d6de9">pact</tspan></text>
+  <text x="600" y="300" text-anchor="middle" font-size="13" fill="#959cc4">节点级验收信号</text>
+  <text x="600" y="326" text-anchor="middle" font-size="12.5" class="mono" fill="#6d6de9">node-scoped diff</text>
+  <text x="600" y="346" text-anchor="middle" font-size="12.5" class="mono" fill="#ac6ae7">no model in the verdict</text>
+
+  <text x="40" y="544" font-size="13" fill="#959cc4">检查面走同一条 CDP 通路，用 chrome-remote-interface 直接连上去；不做投递、不做整页回归、不做 agent 自证。</text>
+
+</svg>

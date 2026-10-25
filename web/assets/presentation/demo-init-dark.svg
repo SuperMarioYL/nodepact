@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="300" viewBox="0 0 760 300" role="img" aria-label="Nodepact demo: init" data-palette="5656e6-ac6ae7-acc7f6-8d5838409548">
+  <style>
+    text { font-family: -apple-system,'Segoe UI','PingFang SC','Noto Sans SC','Microsoft YaHei',sans-serif; }
+    .mono { font-family: 'SF Mono','JetBrains Mono','Cascadia Code',ui-monospace,Menlo,Consolas,monospace; }
+    .zh { font-family: -apple-system,'Segoe UI','PingFang SC','Noto Sans SC','Microsoft YaHei',sans-serif; }
+    .drift1 { animation: drift1 7s ease-in-out infinite alternate; }
+    .drift2 { animation: drift2 9s ease-in-out infinite alternate; }
+    .pulse  { animation: pulse 2.6s ease-in-out infinite; }
+    .pulse2 { animation: pulse2 3.4s ease-in-out infinite; }
+    .flow   { stroke-dasharray: 6 8; animation: march 1.6s linear infinite; }
+    .flow-slow { stroke-dasharray: 5 9; animation: march 3.2s linear infinite; }
+    .blink  { animation: blink 2.4s steps(2, jump-none) infinite; }
+    @keyframes drift1 { from { transform: translate(0,0); } to { transform: translate(14px,-18px); } }
+    @keyframes drift2 { from { transform: translate(0,0); } to { transform: translate(-12px,16px); } }
+    @keyframes pulse  { 0%,100% { opacity: .25; } 50% { opacity: 1; } }
+    @keyframes pulse2 { 0%,100% { opacity: .9; } 45% { opacity: .25; } }
+    @keyframes march  { to { stroke-dashoffset: -28; } }
+    @keyframes blink  { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+    @media (prefers-reduced-motion: reduce) {
+      .drift1,.drift2,.pulse,.pulse2,.flow,.flow-slow,.blink { animation: none; }
+    }</style>
+  <rect width="760" height="300" fill="#050712"/>
+  <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <radialGradient id="halo" cx="50%" cy="42%" r="55%">
+    <stop offset="0%" stop-color="#6d6de9" stop-opacity="0.18"/>
+    <stop offset="60%" stop-color="#ac6ae7" stop-opacity="0.06"/>
+    <stop offset="100%" stop-color="#050712" stop-opacity="0"/>
+  </radialGradient>
+  <g><line x1="60" y1="0" x2="60" y2="300" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="180" y1="0" x2="180" y2="300" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="300" y1="0" x2="300" y2="300" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="420" y1="0" x2="420" y2="300" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="540" y1="0" x2="540" y2="300" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="660" y1="0" x2="660" y2="300" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="60" x2="760" y2="60" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="180" x2="760" y2="180" stroke="#171841" stroke-width="0.5" opacity="0.5"/><g class="drift1"><circle cx="293.0" cy="190.0" r="1" fill="#acc7f6" opacity="0.10"/><circle cx="720.0" cy="289.0" r="1.7" fill="#6d6de9" opacity="0.15"/><circle cx="71.0" cy="98.0" r="2.4" fill="#acc7f6" opacity="0.20"/><circle cx="54.0" cy="277.0" r="1" fill="#6d6de9" opacity="0.25"/><circle cx="293.0" cy="206.0" r="1.7" fill="#acc7f6" opacity="0.10"/><circle cx="720.0" cy="145.0" r="2.4" fill="#6d6de9" opacity="0.15"/><circle cx="71.0" cy="274.0" r="1" fill="#acc7f6" opacity="0.20"/><circle cx="54.0" cy="93.0" r="1.7" fill="#6d6de9" opacity="0.25"/><circle cx="293.0" cy="182.0" r="2.4" fill="#acc7f6" opacity="0.10"/><circle cx="720.0" cy="81.0" r="1" fill="#6d6de9" opacity="0.15"/><circle cx="71.0" cy="10.0" r="1.7" fill="#acc7f6" opacity="0.20"/><circle cx="54.0" cy="229.0" r="2.4" fill="#6d6de9" opacity="0.25"/><circle cx="293.0" cy="78.0" r="1" fill="#acc7f6" opacity="0.10"/><circle cx="720.0" cy="177.0" r="1.7" fill="#6d6de9" opacity="0.15"/><circle cx="71.0" cy="266.0" r="2.4" fill="#acc7f6" opacity="0.20"/></g><g class="drift2"><circle cx="54.0" cy="165.0" r="1" fill="#6d6de9" opacity="0.25"/><circle cx="293.0" cy="94.0" r="1.7" fill="#acc7f6" opacity="0.10"/><circle cx="720.0" cy="33.0" r="2.4" fill="#6d6de9" opacity="0.15"/><circle cx="71.0" cy="162.0" r="1" fill="#acc7f6" opacity="0.20"/><circle cx="54.0" cy="261.0" r="1.7" fill="#6d6de9" opacity="0.25"/><circle cx="293.0" cy="70.0" r="2.4" fill="#acc7f6" opacity="0.10"/><circle cx="720.0" cy="249.0" r="1" fill="#6d6de9" opacity="0.15"/><circle cx="71.0" cy="178.0" r="1.7" fill="#acc7f6" opacity="0.20"/><circle cx="54.0" cy="117.0" r="2.4" fill="#6d6de9" opacity="0.25"/><circle cx="293.0" cy="246.0" r="1" fill="#acc7f6" opacity="0.10"/><circle cx="720.0" cy="65.0" r="1.7" fill="#6d6de9" opacity="0.15"/><circle cx="71.0" cy="154.0" r="2.4" fill="#acc7f6" opacity="0.20"/><circle cx="54.0" cy="53.0" r="1" fill="#6d6de9" opacity="0.25"/><circle cx="293.0" cy="262.0" r="1.7" fill="#acc7f6" opacity="0.10"/><circle cx="720.0" cy="201.0" r="2.4" fill="#6d6de9" opacity="0.15"/></g></g>
+  <text x="30" y="42" font-size="19" font-weight="600" fill="#eef4fd">init：挂上你已开的 Chrome</text>
+  <text x="30" y="66" font-size="13" class="mono" fill="#959cc4">attach over CDP, write the local store</text>
+  <rect x="30" y="96" width="300" height="150" rx="12" fill="#0c101f" stroke="#6d6de9" stroke-width="1.8"/>
+  <text x="50" y="128" font-size="15" fill="#959cc4">开发者已开的 Chrome</text>
+  <text x="50" y="158" font-size="16" class="mono" fill="#eef4fd">dev server 页面</text>
+  <text x="50" y="190" font-size="12.5" class="mono" fill="#959cc4">Nodepact 不启动浏览器</text>
+  <text x="50" y="214" font-size="12.5" class="mono" fill="#ac6ae7">overlay.js 注入浮层</text>
+
+  <path d="M 330 171 L 430 171" stroke="#6d6de9" stroke-width="2" class="flow" fill="none"/>
+  <text x="380" y="156" text-anchor="middle" font-size="12.5" class="mono" fill="#6d6de9">CDP 9222</text>
+
+  <rect x="430" y="96" width="300" height="150" rx="12" fill="#0c101f" stroke="#6d6de9" stroke-width="1.8"/>
+  <text x="450" y="128" font-size="15" fill="#959cc4">本地 store</text>
+  <text x="450" y="160" font-size="14" class="mono" fill="#eef4fd">nodepact.yaml</text>
+  <text x="450" y="188" font-size="14" class="mono" fill="#eef4fd">.nodepact/</text>
+  <text x="450" y="218" font-size="12.5" fill="#959cc4">next: nodepact annotate</text>
+
+</svg>

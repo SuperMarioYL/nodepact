@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="648" viewBox="0 0 1200 648" role="img" aria-label="Nodepact architecture" data-palette="5656e6-ac6ae7-acc7f6-8d5838409548">
+  <style>
+    text { font-family: -apple-system,'Segoe UI','PingFang SC','Noto Sans SC','Microsoft YaHei',sans-serif; }
+    .mono { font-family: 'SF Mono','JetBrains Mono','Cascadia Code',ui-monospace,Menlo,Consolas,monospace; }
+    .zh { font-family: -apple-system,'Segoe UI','PingFang SC','Noto Sans SC','Microsoft YaHei',sans-serif; }
+    .drift1 { animation: drift1 7s ease-in-out infinite alternate; }
+    .drift2 { animation: drift2 9s ease-in-out infinite alternate; }
+    .pulse  { animation: pulse 2.6s ease-in-out infinite; }
+    .pulse2 { animation: pulse2 3.4s ease-in-out infinite; }
+    .flow   { stroke-dasharray: 6 8; animation: march 1.6s linear infinite; }
+    .flow-slow { stroke-dasharray: 5 9; animation: march 3.2s linear infinite; }
+    .blink  { animation: blink 2.4s steps(2, jump-none) infinite; }
+    @keyframes drift1 { from { transform: translate(0,0); } to { transform: translate(14px,-18px); } }
+    @keyframes drift2 { from { transform: translate(0,0); } to { transform: translate(-12px,16px); } }
+    @keyframes pulse  { 0%,100% { opacity: .25; } 50% { opacity: 1; } }
+    @keyframes pulse2 { 0%,100% { opacity: .9; } 45% { opacity: .25; } }
+    @keyframes march  { to { stroke-dashoffset: -28; } }
+    @keyframes blink  { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+    @media (prefers-reduced-motion: reduce) {
+      .drift1,.drift2,.pulse,.pulse2,.flow,.flow-slow,.blink { animation: none; }
+    }</style>
+  <rect width="1200" height="648" fill="#f9f9fe"/>
+  <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <radialGradient id="halo" cx="50%" cy="42%" r="55%">
+    <stop offset="0%" stop-color="#5656e6" stop-opacity="0.18"/>
+    <stop offset="60%" stop-color="#8d57bd" stop-opacity="0.06"/>
+    <stop offset="100%" stop-color="#f9f9fe" stop-opacity="0"/>
+  </radialGradient>
+  <g><line x1="60" y1="0" x2="60" y2="648" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/>
+<line x1="180" y1="0" x2="180" y2="648" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/>
+<line x1="300" y1="0" x2="300" y2="648" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/>
+<line x1="420" y1="0" x2="420" y2="648" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/>
+<line x1="540" y1="0" x2="540" y2="648" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/>
+<line x1="660" y1="0" x2="660" y2="648" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/>
+<line x1="780" y1="0" x2="780" y2="648" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/>
+<line x1="900" y1="0" x2="900" y2="648" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/>
+<line x1="1020" y1="0" x2="1020" y2="648" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/>
+<line x1="1140" y1="0" x2="1140" y2="648" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="60" x2="1200" y2="60" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="180" x2="1200" y2="180" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="300" x2="1200" y2="300" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="420" x2="1200" y2="420" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="540" x2="1200" y2="540" stroke="#cbcbf7" stroke-width="0.5" opacity="0.5"/><g class="drift1"><circle cx="611.0" cy="494.0" r="1" fill="#61708b" opacity="0.10"/><circle cx="994.0" cy="69.0" r="1.7" fill="#5656e6" opacity="0.15"/><circle cx="633.0" cy="286.0" r="2.4" fill="#61708b" opacity="0.20"/><circle cx="240.0" cy="453.0" r="1" fill="#5656e6" opacity="0.25"/><circle cx="1051.0" cy="350.0" r="1.7" fill="#61708b" opacity="0.10"/><circle cx="74.0" cy="45.0" r="2.4" fill="#5656e6" opacity="0.15"/><circle cx="733.0" cy="282.0" r="1" fill="#61708b" opacity="0.20"/><circle cx="460.0" cy="557.0" r="1.7" fill="#5656e6" opacity="0.25"/><circle cx="591.0" cy="158.0" r="2.4" fill="#61708b" opacity="0.10"/><circle cx="714.0" cy="13.0" r="1" fill="#5656e6" opacity="0.15"/><circle cx="253.0" cy="486.0" r="1.7" fill="#61708b" opacity="0.20"/><circle cx="820.0" cy="277.0" r="2.4" fill="#5656e6" opacity="0.25"/><circle cx="911.0" cy="530.0" r="1" fill="#61708b" opacity="0.10"/><circle cx="474.0" cy="389.0" r="1.7" fill="#5656e6" opacity="0.15"/><circle cx="433.0" cy="130.0" r="2.4" fill="#61708b" opacity="0.20"/></g><g class="drift2"><circle cx="980.0" cy="113.0" r="1" fill="#5656e6" opacity="0.25"/><circle cx="791.0" cy="398.0" r="1.7" fill="#61708b" opacity="0.10"/><circle cx="1154.0" cy="53.0" r="2.4" fill="#5656e6" opacity="0.15"/><circle cx="513.0" cy="74.0" r="1" fill="#61708b" opacity="0.20"/><circle cx="920.0" cy="313.0" r="1.7" fill="#5656e6" opacity="0.25"/><circle cx="1131.0" cy="222.0" r="2.4" fill="#61708b" opacity="0.10"/><circle cx="14.0" cy="233.0" r="1" fill="#5656e6" opacity="0.15"/><circle cx="1073.0" cy="418.0" r="1.7" fill="#61708b" opacity="0.20"/><circle cx="500.0" cy="161.0" r="2.4" fill="#5656e6" opacity="0.25"/><circle cx="1151.0" cy="406.0" r="1" fill="#61708b" opacity="0.10"/><circle cx="294.0" cy="473.0" r="1.7" fill="#5656e6" opacity="0.15"/><circle cx="273.0" cy="458.0" r="2.4" fill="#61708b" opacity="0.20"/><circle cx="1100.0" cy="377.0" r="1" fill="#5656e6" opacity="0.25"/><circle cx="111.0" cy="442.0" r="1.7" fill="#61708b" opacity="0.10"/><circle cx="1074.0" cy="165.0" r="2.4" fill="#5656e6" opacity="0.15"/></g></g>
+  <text x="40" y="50" font-size="24" font-weight="600" fill="#131630">架构 <tspan fill="#555e88" font-size="16">· 最多两个进程，状态全是扁平文件</tspan></text>
+
+  <!-- browser zone -->
+  <rect x="40" y="78" width="300" height="190" rx="12" fill="#f7f7fe" stroke="#5656e6" stroke-width="1.8"/>
+  <text x="60" y="108" font-size="14" fill="#555e88">开发者已开的 Chrome</text>
+  <text x="60" y="140" font-size="18" class="mono" fill="#131630">dev server 页面</text>
+  <text x="60" y="174" font-size="13" fill="#555e88">overlay.js · 注入浮层，只负责点选</text>
+  <text x="60" y="200" font-size="12.5" class="mono" fill="#555e88">getBoundingClientRect</text>
+  <text x="60" y="222" font-size="12.5" class="mono" fill="#555e88">getComputedStyle</text>
+  <text x="60" y="250" font-size="12.5" fill="#8d57bd">Nodepact 从不启动浏览器</text>
+
+  <!-- CDP -->
+  <path d="M 340 158 L 400 158" stroke="#5656e6" stroke-width="2" class="flow" fill="none"/>
+  <text x="370" y="144" text-anchor="middle" font-size="12.5" class="mono" fill="#5656e6">CDP</text>
+  <text x="370" y="182" text-anchor="middle" font-size="11.5" class="mono" fill="#555e88">9222</text>
+  <path d="M 400 200 L 340 200" stroke="#8d57bd" stroke-width="1.4" class="flow-slow" fill="none"/>
+
+  <!-- assertion kinds -->
+  <rect x="40" y="296" width="300" height="180" rx="12" fill="#f7f7fe" stroke="#cbcbf7" stroke-width="1.4"/>
+  <text x="60" y="326" font-size="14" fill="#555e88">断言只有三类，一行一条</text>
+  <text x="60" y="358" font-size="13" class="mono" fill="#131630">gap(#email, #submit) >= 12px</text>
+  <text x="60" y="386" font-size="13" class="mono" fill="#131630">style(display) == flex</text>
+  <text x="60" y="414" font-size="13" class="mono" fill="#131630">changed()</text>
+  <text x="60" y="446" font-size="12.5" fill="#555e88">gap 取两盒边缘距离，style 读 computed</text>
+  <text x="60" y="466" font-size="12.5" fill="#555e88">style，changed 看相对基线是否变了</text>
+
+  <!-- CLI zone -->
+  <rect x="400" y="78" width="760" height="430" rx="12" fill="#f7f7fe" stroke="#5656e6" stroke-width="1.8"/>
+  <text x="424" y="108" font-size="14" fill="#555e88">nodepact CLI · 单进程（node）</text>
+
+  <rect x="424" y="118" width="336" height="84" rx="12" fill="#f7f7fe" stroke="#cbcbf7" stroke-width="1.4"/>
+  <text x="444" y="148" font-size="17" class="mono" fill="#5656e6">anchor/</text>
+  <text x="444" y="172" font-size="13" fill="#555e88">结构指纹 + 存储</text>
+  <text x="444" y="192" font-size="12" class="mono" fill="#555e88">selector + fp + baseline crop</text>
+
+  <rect x="424" y="214" width="336" height="102" rx="12" fill="#f7f7fe" stroke="#5656e6" stroke-width="1.8"/>
+  <text x="444" y="244" font-size="17" class="mono" fill="#5656e6">oracle/</text>
+  <text x="444" y="268" font-size="13" fill="#555e88">assert.eval + diff + verdict</text>
+  <text x="444" y="290" font-size="12" class="mono" fill="#555e88">pixelmatch · includeAA:false</text>
+  <text x="444" y="309" font-size="12" class="mono" fill="#5656e6">DONE / NOT_DONE / UNSTABLE</text>
+
+  <rect x="800" y="118" width="336" height="84" rx="12" fill="#f7f7fe" stroke="#cbcbf7" stroke-width="1.4" stroke-dasharray="5 5"/>
+  <text x="820" y="148" font-size="17" class="mono" fill="#8d57bd">annotate/</text>
+  <text x="820" y="172" font-size="13" fill="#555e88">中文批注 → 断言草稿</text>
+  <text x="820" y="192" font-size="12" fill="#555e88">可选：仅起草，判定不依赖它</text>
+
+  <rect x="800" y="214" width="336" height="84" rx="12" fill="#f7f7fe" stroke="#cbcbf7" stroke-width="1.4"/>
+  <text x="820" y="244" font-size="17" class="mono" fill="#5656e6">mcp/</text>
+  <text x="820" y="268" font-size="13" fill="#555e88">nodepact.check / nodepact.list</text>
+  <text x="820" y="288" font-size="12" fill="#555e88">coding agent 的最后一公里</text>
+
+  <rect x="800" y="314" width="336" height="74" rx="12" fill="#f7f7fe" stroke="#cbcbf7" stroke-width="1.4" stroke-dasharray="5 5"/>
+  <text x="820" y="340" font-size="12.5" fill="#555e88">providers · draft only</text>
+  
+  <rect x="820" y="350" width="74" height="26" rx="13" fill="#f3f3fd" stroke="#cbcbf7" stroke-width="1.2"/>
+  <text x="857" y="368" text-anchor="middle" font-size="14" fill="#555e88" class="mono">deepseek</text>
+
+  <rect x="900" y="350" width="74" height="26" rx="13" fill="#f3f3fd" stroke="#cbcbf7" stroke-width="1.2"/>
+  <text x="937" y="368" text-anchor="middle" font-size="14" fill="#555e88" class="mono">qwen</text>
+
+  <rect x="980" y="350" width="74" height="26" rx="13" fill="#f3f3fd" stroke="#cbcbf7" stroke-width="1.2"/>
+  <text x="1017" y="368" text-anchor="middle" font-size="14" fill="#555e88" class="mono">glm</text>
+
+  <rect x="1060" y="350" width="74" height="26" rx="13" fill="#f3f3fd" stroke="#cbcbf7" stroke-width="1.2"/>
+  <text x="1097" y="368" text-anchor="middle" font-size="14" fill="#555e88" class="mono">kimi</text>
+
+  <rect x="424" y="328" width="356" height="152" rx="12" fill="#f7f7fe" stroke="#cbcbf7" stroke-width="1.4"/>
+  <text x="444" y="356" font-size="13.5" fill="#555e88">.nodepact/ · 全部状态落在本地，可私有化</text>
+  <text x="444" y="386" font-size="13.5" class="mono" fill="#131630">steer.yaml</text>
+  <text x="444" y="410" font-size="13.5" class="mono" fill="#131630">baseline/submit.png</text>
+  <text x="444" y="434" font-size="13.5" class="mono" fill="#131630">diffs/submit.after.png</text>
+  <text x="444" y="462" font-size="12" fill="#555e88">锚点 + 批注 + 断言　　修复前裁剪　　差异图</text>
+
+  <text x="40" y="540" font-size="13.5" fill="#555e88">没有守护进程、没有数据库、没有云端；判定读的是节点框内像素占比，截图会在节点四周多裁 capture_margin（默认 16px）。</text>
+  <text x="40" y="570" font-size="13.5" fill="#555e88">DOM 漂移时选择器可能失效，结构指纹把节点找回来；两个候选打平就报 anchor_not_found，绝不猜。</text>
+
+</svg>

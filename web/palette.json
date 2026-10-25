@@ -1,0 +1,38 @@
+{
+  "mode": "auto",
+  "id": "5656e6-ac6ae7-acc7f6-8d5838409548",
+  "identity": "https://github.com/supermarioyl/nodepact",
+  "primary": "#5656e6",
+  "secondary": "#ac6ae7",
+  "highlight": "#acc7f6",
+  "dark": {
+    "bg": "#050712",
+    "panel": "#0c101f",
+    "code": "#0a0d1d",
+    "ink": "#eef4fd",
+    "muted": "#959cc4",
+    "line": "#171841",
+    "primary": "#6d6de9",
+    "secondary": "#ac6ae7",
+    "highlight": "#acc7f6",
+    "accent": "#6d6de9",
+    "buttonStart": "#5656e6",
+    "buttonEnd": "#955cc9",
+    "buttonText": "#ffffff"
+  },
+  "light": {
+    "bg": "#f9f9fe",
+    "panel": "#f7f7fe",
+    "code": "#f3f3fd",
+    "ink": "#131630",
+    "muted": "#555e88",
+    "line": "#cbcbf7",
+    "primary": "#5656e6",
+    "secondary": "#8d57bd",
+    "highlight": "#61708b",
+    "accent": "#5656e6",
+    "buttonStart": "#5656e6",
+    "buttonEnd": "#955cc9",
+    "buttonText": "#ffffff"
+  }
+}

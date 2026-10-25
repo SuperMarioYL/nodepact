@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="890" viewBox="0 0 720 890" role="img" aria-label="Nodepact capabilities and integration" data-palette="5656e6-ac6ae7-acc7f6-8d5838409548">
+  <style>
+    text { font-family: -apple-system,'Segoe UI','PingFang SC','Noto Sans SC','Microsoft YaHei',sans-serif; }
+    .mono { font-family: 'SF Mono','JetBrains Mono','Cascadia Code',ui-monospace,Menlo,Consolas,monospace; }
+    .zh { font-family: -apple-system,'Segoe UI','PingFang SC','Noto Sans SC','Microsoft YaHei',sans-serif; }
+    .drift1 { animation: drift1 7s ease-in-out infinite alternate; }
+    .drift2 { animation: drift2 9s ease-in-out infinite alternate; }
+    .pulse  { animation: pulse 2.6s ease-in-out infinite; }
+    .pulse2 { animation: pulse2 3.4s ease-in-out infinite; }
+    .flow   { stroke-dasharray: 6 8; animation: march 1.6s linear infinite; }
+    .flow-slow { stroke-dasharray: 5 9; animation: march 3.2s linear infinite; }
+    .blink  { animation: blink 2.4s steps(2, jump-none) infinite; }
+    @keyframes drift1 { from { transform: translate(0,0); } to { transform: translate(14px,-18px); } }
+    @keyframes drift2 { from { transform: translate(0,0); } to { transform: translate(-12px,16px); } }
+    @keyframes pulse  { 0%,100% { opacity: .25; } 50% { opacity: 1; } }
+    @keyframes pulse2 { 0%,100% { opacity: .9; } 45% { opacity: .25; } }
+    @keyframes march  { to { stroke-dashoffset: -28; } }
+    @keyframes blink  { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+    @media (prefers-reduced-motion: reduce) {
+      .drift1,.drift2,.pulse,.pulse2,.flow,.flow-slow,.blink { animation: none; }
+    }</style>
+  <rect width="720" height="890" fill="#050712"/>
+  <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <radialGradient id="halo" cx="50%" cy="42%" r="55%">
+    <stop offset="0%" stop-color="#6d6de9" stop-opacity="0.18"/>
+    <stop offset="60%" stop-color="#ac6ae7" stop-opacity="0.06"/>
+    <stop offset="100%" stop-color="#050712" stop-opacity="0"/>
+  </radialGradient>
+  <g><line x1="60" y1="0" x2="60" y2="890" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="180" y1="0" x2="180" y2="890" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="300" y1="0" x2="300" y2="890" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="420" y1="0" x2="420" y2="890" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="540" y1="0" x2="540" y2="890" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="660" y1="0" x2="660" y2="890" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="60" x2="720" y2="60" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="180" x2="720" y2="180" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="300" x2="720" y2="300" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="420" x2="720" y2="420" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="540" x2="720" y2="540" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="660" x2="720" y2="660" stroke="#171841" stroke-width="0.5" opacity="0.5"/>
+<line x1="0" y1="780" x2="720" y2="780" stroke="#171841" stroke-width="0.5" opacity="0.5"/><g class="drift1"><circle cx="231.0" cy="200.0" r="1" fill="#acc7f6" opacity="0.10"/><circle cx="114.0" cy="139.0" r="1.7" fill="#6d6de9" opacity="0.15"/><circle cx="673.0" cy="848.0" r="2.4" fill="#acc7f6" opacity="0.20"/><circle cx="180.0" cy="637.0" r="1" fill="#6d6de9" opacity="0.25"/><circle cx="591.0" cy="836.0" r="1.7" fill="#acc7f6" opacity="0.10"/><circle cx="494.0" cy="805.0" r="2.4" fill="#6d6de9" opacity="0.15"/><circle cx="413.0" cy="224.0" r="1" fill="#acc7f6" opacity="0.20"/><circle cx="100.0" cy="673.0" r="1.7" fill="#6d6de9" opacity="0.25"/><circle cx="351.0" cy="332.0" r="2.4" fill="#acc7f6" opacity="0.10"/><circle cx="474.0" cy="31.0" r="1" fill="#6d6de9" opacity="0.15"/><circle cx="353.0" cy="620.0" r="1.7" fill="#acc7f6" opacity="0.20"/><circle cx="620.0" cy="349.0" r="2.4" fill="#6d6de9" opacity="0.25"/><circle cx="511.0" cy="518.0" r="1" fill="#acc7f6" opacity="0.10"/><circle cx="254.0" cy="37.0" r="1.7" fill="#6d6de9" opacity="0.15"/><circle cx="393.0" cy="536.0" r="2.4" fill="#acc7f6" opacity="0.20"/></g><g class="drift2"><circle cx="40.0" cy="655.0" r="1" fill="#6d6de9" opacity="0.25"/><circle cx="171.0" cy="584.0" r="1.7" fill="#acc7f6" opacity="0.10"/><circle cx="634.0" cy="853.0" r="2.4" fill="#6d6de9" opacity="0.15"/><circle cx="133.0" cy="422.0" r="1" fill="#acc7f6" opacity="0.20"/><circle cx="660.0" cy="511.0" r="1.7" fill="#6d6de9" opacity="0.25"/><circle cx="631.0" cy="860.0" r="2.4" fill="#acc7f6" opacity="0.10"/><circle cx="614.0" cy="469.0" r="1" fill="#6d6de9" opacity="0.15"/><circle cx="73.0" cy="578.0" r="1.7" fill="#acc7f6" opacity="0.20"/><circle cx="480.0" cy="67.0" r="2.4" fill="#6d6de9" opacity="0.25"/><circle cx="91.0" cy="116.0" r="1" fill="#acc7f6" opacity="0.10"/><circle cx="394.0" cy="445.0" r="1.7" fill="#6d6de9" opacity="0.15"/><circle cx="113.0" cy="44.0" r="2.4" fill="#acc7f6" opacity="0.20"/><circle cx="600.0" cy="583.0" r="1" fill="#6d6de9" opacity="0.25"/><circle cx="451.0" cy="722.0" r="1.7" fill="#acc7f6" opacity="0.10"/><circle cx="74.0" cy="661.0" r="2.4" fill="#6d6de9" opacity="0.15"/></g></g>
+  <text x="40" y="58" font-size="27" font-weight="600" fill="#eef4fd">它站在哪一层</text>
+
+  <g filter="url(#glow)">
+    <rect x="40" y="92" width="640" height="150" rx="16" fill="#0c101f" stroke="#6d6de9" stroke-width="2.2"/>
+  </g>
+  <text x="360" y="140" text-anchor="middle" font-size="30" font-weight="700" fill="#eef4fd">Node<tspan fill="#6d6de9">pact</tspan></text>
+  <text x="360" y="176" text-anchor="middle" font-size="15" fill="#959cc4">你指的那个节点自己的渲染差异，就是验收信号</text>
+  <text x="360" y="206" text-anchor="middle" font-size="13" class="mono" fill="#6d6de9">node-scoped diff · no model in the verdict</text>
+
+  <text x="40" y="292" font-size="15" fill="#959cc4">相邻工具各自负责的那一半</text>
+  <g>
+      <rect x="40" y="312" width="640" height="104" rx="12" fill="#0c101f" stroke="#171841" stroke-width="1.4" stroke-dasharray="5 5"/>
+      <text x="64" y="356" font-size="20" class="mono" fill="#eef4fd">spotnote</text>
+      <text x="64" y="388" font-size="14" fill="#959cc4">把批注投递给 agent</text>
+    </g>
+<g>
+      <rect x="40" y="440" width="640" height="104" rx="12" fill="#0c101f" stroke="#171841" stroke-width="1.4" stroke-dasharray="5 5"/>
+      <text x="64" y="484" font-size="20" class="mono" fill="#eef4fd">reticle 一类</text>
+      <text x="64" y="516" font-size="14" fill="#959cc4">让 agent 自证</text>
+    </g>
+<g>
+      <rect x="40" y="568" width="640" height="104" rx="12" fill="#0c101f" stroke="#171841" stroke-width="1.4" stroke-dasharray="5 5"/>
+      <text x="64" y="612" font-size="20" class="mono" fill="#eef4fd">Playwright / Percy</text>
+      <text x="64" y="644" font-size="14" fill="#959cc4">CI 里比整页基线</text>
+    </g>
+<g>
+      <rect x="40" y="696" width="640" height="104" rx="12" fill="#0c101f" stroke="#171841" stroke-width="1.4" stroke-dasharray="5 5"/>
+      <text x="64" y="740" font-size="20" class="mono" fill="#eef4fd">chrome-devtools-mcp</text>
+      <text x="64" y="772" font-size="14" fill="#959cc4">agent 读 DOM、截图</text>
+    </g>
+  <text x="40" y="834" font-size="14" fill="#959cc4">检查面走同一条 CDP 通路，用 chrome-remote-interface 直接连上去。</text>
+  <text x="40" y="864" font-size="14" fill="#959cc4">不做投递、不做整页回归、不做 agent 自证。</text>
+
+</svg>
