@@ -1,0 +1,57 @@
+# Nodepact project config. Copy to ./nodepact.yaml (or run `nodepact init`, which creates it)
+# and edit. Every value below is the built-in default.
+version: 1
+
+cdp:
+  host: 127.0.0.1
+  # Chrome must be started with --remote-debugging-port=<port>. Nodepact attaches to that
+  # browser; it never launches one.
+  port: 9222
+  # Prefix of the dev server URL to attach to, e.g. http://localhost:5173.
+  # null accepts the only open page and errors out when several are open.
+  url_match: null
+
+oracle:
+  # A render diff at least this large (fraction of the node's crop) counts as "the node
+  # really changed". DONE requires both the assertion and this diff.
+  epsilon: 0.01
+  # If two back-to-back captures of the unchanged node differ by more than this, the node's
+  # pixels cannot be trusted and `check` reports UNSTABLE instead of guessing.
+  stability_floor: 0.01
+  # Clip scale for Page.captureScreenshot; 1 keeps the crop independent of the display DPR.
+  capture_scale: 1
+  # Pixels of neighbourhood captured around the node. A tight crop moves with the node, so a
+  # fix that only relocates it would show no pixel diff; the margin is what lets the diff see
+  # the movement a gap assertion asks for.
+  capture_margin: 16
+  # pixelmatch per-pixel colour tolerance.
+  pixel_threshold: 0.1
+
+model:
+  # Only used by `nodepact annotate` to draft an assertion from a Chinese annotation.
+  # The verdict never depends on it: with no key, no endpoint or no network, `check` behaves
+  # exactly the same and the assertion can be written by hand.
+  provider: deepseek
+  timeout_ms: 20000
+
+# OpenAI-compatible endpoints for drafting. The API key is read from the named environment
+# variable at call time and is never written to disk by Nodepact.
+providers:
+  deepseek:
+    base_url: https://api.deepseek.com/v1
+    model: deepseek-chat
+    api_key_env: DEEPSEEK_API_KEY
+  qwen:
+    base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+    model: qwen-plus
+    api_key_env: DASHSCOPE_API_KEY
+  glm:
+    # GLM's OpenAI-compatible endpoint differs per deployment (bigmodel.cn vs a private
+    # gateway), so no URL is shipped: set the one your gateway exposes.
+    base_url: ""
+    model: glm-5
+    api_key_env: ZHIPUAI_API_KEY
+  kimi:
+    base_url: https://api.moonshot.cn/v1
+    model: moonshot-v1-auto
+    api_key_env: MOONSHOT_API_KEY

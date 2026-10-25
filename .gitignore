@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+
+# local runtime state: anchors, baselines, diff artifacts
+.nodepact/
+
+# build scratch
+_build_ctx.json
+PUBLISH_BLOCKED.md
+BUILD_SETUP_NEXT_STEPS.md
+.spawn.*
+.builder_*
+.build_metadata*
+.stage_*
+
+# agent tooling
+.claude/
+CLAUDE.md
+
+# editor / os
+.DS_Store
+*.log

@@ -1,0 +1,41 @@
+# One Nodepact steering pair, in the exact shape `nodepact annotate` writes into
+# .nodepact/steer.yaml.
+#
+# This is the record of a real run against examples/demo-app: #submit sat 4px under the email
+# input, the annotation said so in Chinese, and the assertion was written by hand as
+# `gap(#email, #submit) >= 12px`. `nodepact check` returned NOT_DONE at 4px and DONE at 14px
+# after the one-line CSS fix.
+#
+# To use it: run `nodepact annotate` once (it writes this file and captures the baseline crop),
+# then copy the `assertion:` block below into your own .nodepact/steer.yaml. The baseline crop is
+# a screenshot of *your* window, so it cannot be shipped here: `.nodepact/baseline/<id>.png` is
+# created by `annotate`, and `check` refuses to run without it.
+#
+# The assertion is a block rather than one line of DSL text on purpose: YAML ends a plain value
+# at " #", so `assertion: gap(#email, #submit) >= 12px` would quietly parse as `gap(#email,`.
+# Selector values therefore need quotes — `a: "#email"`, not `a: #email`.
+version: 1
+pairs:
+  - anchor:
+      id: submit
+      selector: "#submit"
+      # tag + stable attributes | nearest ancestors | text hash
+      fp: button#submit[type=button]|div>form#settings>main|t:b6fc31
+      baseline_png: .nodepact/baseline/submit.png
+      # the node's box (CSS px, document coordinates) when it was anchored
+      box:
+        x: 431
+        y: 226.59375
+        w: 68
+        h: 46
+    annotation: 提交按钮和上面的邮箱输入框太近了
+    assertion:
+      kind: gap
+      a: "#email"
+      b: "#submit"
+      op: ">="
+      px: 12
+    # the assertion's measured value when the baseline was captured: the gap was 4px
+    baseline_measure: 4
+    created_at: 2026-10-25T22:15:14.666Z
+    updated_at: null

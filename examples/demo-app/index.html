@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nodepact demo app</title>
+    <!--
+      A deliberately tiny settings page for the 10-minute Nodepact walkthrough.
+
+      Run it:
+        python3 -m http.server 5173          # then open http://localhost:5173
+
+      Then, in another terminal:
+        nodepact init --url http://localhost:5173
+        nodepact annotate                    # click 提交, annotate 「提交按钮和上面的邮箱输入框太近了」
+        nodepact check                       # NOT_DONE: gap(#email, #submit) is 4px, not >= 12px
+        nodepact check                       # after the one-line fix below -> DONE
+
+      THE FIX (the whole point of the demo): in the <style> block, change
+          #email { margin-bottom: 4px; }
+      to
+          #email { margin-bottom: 14px; }
+      That is the only edit needed for `check` to flip NOT_DONE -> DONE.
+    -->
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #111827;
+        --muted: #6b7280;
+        --line: #d1d5db;
+        --brand: #2563eb;
+        --danger: #dc2626;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 48px 24px;
+        background: #f9fafb;
+        color: var(--ink);
+        font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC",
+          "Microsoft YaHei", sans-serif;
+      }
+      main {
+        max-width: 460px;
+        margin: 0 auto;
+      }
+      h1 {
+        font-size: 20px;
+        margin: 0 0 4px;
+      }
+      p.lead {
+        margin: 0 0 24px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      form#settings {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 20px;
+      }
+      label {
+        display: block;
+        font-size: 13px;
+        color: var(--muted);
+        margin-bottom: 6px;
+      }
+      /* ------------------------------------------------------------------ */
+      /* THE ONE LINE THE DEMO ASKS YOU TO CHANGE: 4px -> 14px              */
+      #email {
+        margin-bottom: 4px;
+      }
+      /* ------------------------------------------------------------------ */
+      input#email {
+        display: block;
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        font: inherit;
+      }
+      div.actions {
+        display: flex;
+        gap: 8px;
+      }
+      button {
+        padding: 10px 18px;
+        border-radius: 8px;
+        border: 1px solid transparent;
+        font: inherit;
+        cursor: pointer;
+      }
+      button#submit {
+        background: var(--brand);
+        color: #fff;
+      }
+      button#reset {
+        background: #fff;
+        color: var(--muted);
+        border-color: var(--line);
+      }
+      output#status {
+        display: block;
+        margin-top: 16px;
+        font-size: 13px;
+        color: var(--muted);
+        min-height: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>账号设置</h1>
+      <p class="lead">Nodepact 的示例页面：表单里的提交按钮和邮箱输入框只隔了 4px。</p>
+
+      <form id="settings">
+        <label for="email">邮箱</label>
+        <input id="email" type="email" placeholder="请输入邮箱" />
+
+        <div class="actions">
+          <button id="submit" type="button">提交</button>
+          <button id="reset" type="button">重置</button>
+        </div>
+
+        <output id="status"></output>
+      </form>
+    </main>
+
+    <script>
+      // Keeps the page interactive without any build step; Nodepact never needs this code.
+      var status = document.getElementById("status");
+      document.getElementById("submit").addEventListener("click", function () {
+        status.textContent = "已提交（示例页面，不会真的发出请求）";
+      });
+      document.getElementById("reset").addEventListener("click", function () {
+        document.getElementById("email").value = "";
+        status.textContent = "";
+      });
+    </script>
+  </body>
+</html>

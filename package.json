@@ -1,0 +1,61 @@
+{
+  "name": "nodepact",
+  "version": "0.1.0",
+  "description": "元素锚定的 UI 纠偏与验收：在开发者已开的 Chrome 里点一个节点、写一句中文批注，把它落成可判定的断言，用该节点的渲染差异判定 DONE / NOT_DONE。判定路径上没有模型。",
+  "type": "module",
+  "license": "MIT",
+  "author": "SuperMarioYL",
+  "homepage": "https://github.com/SuperMarioYL/nodepact",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SuperMarioYL/nodepact.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SuperMarioYL/nodepact/issues"
+  },
+  "bin": {
+    "nodepact": "./dist/cli/index.js"
+  },
+  "files": [
+    "dist",
+    "configs",
+    "examples"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "keywords": [
+    "ui-verification",
+    "visual-diff",
+    "cdp",
+    "chrome-devtools-protocol",
+    "coding-agent",
+    "mcp",
+    "annotation",
+    "frontend"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node --eval \"require('node:fs').cpSync('src/annotate/overlay.js','dist/annotate/overlay.js')\"",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "dev": "tsx src/cli/index.ts",
+    "test": "node --test",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0",
+    "chrome-remote-interface": "^0.33",
+    "commander": "^12.1",
+    "pixelmatch": "^5.3",
+    "pngjs": "^7.0",
+    "yaml": "^2.5",
+    "zod": "^3.23"
+  },
+  "devDependencies": {
+    "@types/chrome-remote-interface": "^0.33.0",
+    "@types/node": "^22.10.0",
+    "@types/pixelmatch": "^5.2.6",
+    "@types/pngjs": "^6.0.5",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}
