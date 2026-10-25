@@ -1,0 +1,54 @@
+{
+  "product": "nodepact",
+  "version": "0.1.0",
+  "date": "2026-10-26",
+  "input": "examples/demo-app/index.html",
+  "environment": {
+    "runtime": "node 22",
+    "browser": "the developer's own Chrome, attached over CDP at 127.0.0.1:9222",
+    "browser_launched_by_nodepact": false,
+    "model": "none on the verdict path; the assertion draft is offline-optional"
+  },
+  "commands": [
+    "python3 -m http.server 5173 --directory examples/demo-app",
+    "nodepact init --url http://localhost:5173",
+    "nodepact annotate",
+    "# click the submit button, annotate it in Chinese, accept the drafted assertion",
+    "nodepact check --json",
+    "# edit examples/demo-app/index.html: #email { margin-bottom: 4px } -> 14px",
+    "nodepact check --json"
+  ],
+  "observed": {
+    "anchor_selector": "#submit",
+    "anchor_fp": "99ceb4",
+    "baseline": "68x46",
+    "assertion": "gap(#email, #submit) >= 12px",
+    "before": 4,
+    "after_before_fix": 4,
+    "after_after_fix": 14,
+    "changed_px": 165,
+    "total_px": 7900,
+    "ratio": 0.0209,
+    "noise_ratio": 0,
+    "epsilon": 0.01,
+    "stability_floor": 0.01,
+    "capture_margin": 16,
+    "verdict_before_fix": "NOT_DONE",
+    "verdict_after_fix": "DONE",
+    "exit_code_after_fix": 0
+  },
+  "artifacts": [
+    ".nodepact/baseline/submit.png",
+    ".nodepact/diffs/submit.after.png",
+    ".nodepact/diffs/submit.diff.png"
+  ],
+  "limitations": [
+    "Chromium only: Nodepact talks CDP to a browser the developer already started; it never launches one.",
+    "It judges, it does not fix: no DOM or source edits, no auto-repair.",
+    "Three assertion kinds only (gap, style, changed); no layout-tree reasoning.",
+    "No CI mode and no headless run: the baseline is a crop of one developer's own window, so it is not committed to the repository.",
+    "The baseline crop is machine specific: .nodepact/ is git-ignored and re-created by `nodepact annotate`.",
+    "The model ids in configs/nodepact.yaml come from each vendor's console and are not verified by an API call; GLM's OpenAI-compatible base_url is left empty because it differs per deployment.",
+    "The demo numbers above come from one machine at devicePixelRatio 1 with capture_scale 1; a different DPR changes the crop size, not the verdict."
+  ]
+}
